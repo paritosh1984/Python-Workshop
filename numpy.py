@@ -41,3 +41,17 @@ dtype('int32')
 2
 >>> n
 
+#getting data columnwise
+>>> b[:,0]
+array([1, 2])
+>>> b[:,2]
+array([3, 4])
+>>> b[:,3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: index 3 is out of bounds for axis 1 with size 3
+>>> b[:,2]
+array([3, 4])
+>>>
+
+
