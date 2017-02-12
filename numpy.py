@@ -16,3 +16,8 @@ array([2, 3, 4])
 (2, 3)
 >>>
 
+# get number of rows
+>>> b.ndim
+2
+
+
