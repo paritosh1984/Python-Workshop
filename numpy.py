@@ -10,3 +10,9 @@ array([2, 3, 4])
 3
 >>> b[1,1]
 3
+
+#shape provides the matrix dimensions
+>>> b.shape
+(2, 3)
+>>>
+
