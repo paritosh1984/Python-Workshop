@@ -97,3 +97,47 @@ True
 >>> id(yy.base)
 1365666200
 >>>
+
+>>> xx.astype(str)
+array(['1', '2', '3'],
+      dtype='<U11')
+>>>
+
+>>> xx
+array([1, 2, 3])
+>>> xx.mean()
+2.0
+>>>
+>>>
+
+
+>>> yy=np.array([[1,2,3],[4,5,6]])
+>>>
+>>>
+>>> yy
+array([[1, 2, 3],
+       [4, 5, 6]])
+>>>
+>>>
+>>>
+>>> yy.shape
+(2, 3)
+
+
+>>>
+>>> yy.size
+6
+>>>
+
+
+#calcualting mean columnwise
+>>> np.mean(yy,axis=0)
+array([ 2.5,  3.5,  4.5])
+>>>
+
+>>> np.savetxt('file.csv',yy)
+
+
+
+
+
