@@ -20,4 +20,9 @@ array([2, 3, 4])
 >>> b.ndim
 2
 
+#get total number of elements in the matrix
+
+>>> b.size
+6
+>>>
 
