@@ -26,3 +26,7 @@ array([2, 3, 4])
 6
 >>>
 
+#get data type of the matrix elements
+>>> b.dtype
+dtype('int32')
+
