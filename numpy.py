@@ -33,3 +33,11 @@ dtype('int32')
 #size of each element
 >>> b.itemsize
 4
+#getting shape values in variables
+>>> m,n=b.shape
+>>>
+>>>
+>>> m
+2
+>>> n
+
