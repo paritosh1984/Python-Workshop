@@ -65,3 +65,25 @@ array([ 0.,  0.,  0.,  0.,  0.,  0.])
 >>>
 >>> numpy.arange(6)
 array([0, 1, 2, 3, 4, 5])
+
+>>> xx
+array([0, 1, 2, 3, 4, 5])
+>>> id(xx)
+52309192
+>>>
+>>>
+>>>
+>>> yy=numpy.arange(6)
+>>> id(yy)
+2481472
+>>>
+>>>
+>>> xx is yy
+False
+>>>
+>>> zz=xx
+>>>
+>>> zz is xx
+True
+>>>
+
