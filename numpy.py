@@ -30,3 +30,6 @@ array([2, 3, 4])
 >>> b.dtype
 dtype('int32')
 
+#size of each element
+>>> b.itemsize
+4
