@@ -54,4 +54,13 @@ IndexError: index 3 is out of bounds for axis 1 with size 3
 array([3, 4])
 >>>
 
+#alternate ways to create numpy arrarys
+>>> kk=numpy.zeros(6,dtype=numpy.int)
+>>> kk
+array([0, 0, 0, 0, 0, 0])
+>>>
+>>> kk=numpy.zeros(6)
+>>> kk
+array([ 0.,  0.,  0.,  0.,  0.,  0.])
+>>>
 
