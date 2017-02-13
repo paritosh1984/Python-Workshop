@@ -137,6 +137,15 @@ array([ 2.5,  3.5,  4.5])
 
 >>> np.savetxt('file.csv',yy)
 
+a = numpy.empty((2680,262144,))
+
+for i in range(0,2680):
+       for j in range(0,262144):
+              a[i,j]=random.random()
+              
+       
+              
+
 
 
 
