@@ -39,3 +39,15 @@
 [10, 'vivek', 20, 'abc', 1, 2, 1, 2, 4]
 >>>
 
+>>> a
+[10, 'vivek', 20, 'abc', 1, 2, 1, 2, 4]
+>>> a.remove('vivek')
+>>> a
+[10, 20, 'abc', 1, 2, 1, 2, 4]
+>>>
+>>> a.remove('vivek')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+>>>
+
