@@ -159,3 +159,24 @@ ValueError: list.remove(x): x not in list
 >>> c
 [4, 6, 2]
 >>>
+
+
+# difference between using copy() function and assignment
+>>> a
+[4, 6, 2]
+>>>
+>>> b
+[4, 6, 2]
+>>> c
+[4, 6, 2]
+>>> c[2]=1
+>>> a
+[4, 6, 2]
+>>> b
+[4, 6, 1]
+>>> c
+[4, 6, 1]
+>>>
+
+# 'b' is created from 'a' using copy() function and 'c' is created from 'b' using assignment operator. 'b' and 'c' point to same memory,
+# so, when we change c[2]=1, the value of b is also changes, however, the value of a not changed.
