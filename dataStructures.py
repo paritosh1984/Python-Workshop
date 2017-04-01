@@ -118,3 +118,16 @@ ValueError: list.remove(x): x not in list
 [1, 2, 4, 5]
 >>>
 #test
+
+#sort() function is used to sort the list in ascending or descending order
+>>> a
+[1, 2, 4, 5, 4, 5, 4, 6]
+>>> a.sort()
+>>> a
+[1, 2, 4, 4, 4, 5, 5, 6]
+>>>
+#to sort a list in reverse or descending order
+>>> a.sort(reverse=True)
+>>> a
+[6, 5, 5, 4, 4, 4, 2, 1]
+>>>
