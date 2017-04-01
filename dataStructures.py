@@ -72,3 +72,30 @@ ValueError: list.remove(x): x not in list
 >>> a
 [10, 20, 1, 2, 1, 2]
 >>>
+
+# remove all element from the list using clear() function
+>>> a
+[10, 20, 1, 2, 1, 2]
+>>> a.clear()
+>>> a
+[]
+
+#use index() function to find location of a element in a list
+>>> a.extend([1,2,4,5])
+>>> a
+[1, 2, 4, 5]
+>>> a.index(2)
+1
+>>> a.index(4)
+2
+>>>
+
+# in case of multiple elements, index() provides the location of the first element
+>>> a.append(4)
+>>> a
+[1, 2, 4, 5, 4]
+>>> a.index(4)
+2
+>>>
+
+
