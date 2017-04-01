@@ -149,3 +149,13 @@ ValueError: list.remove(x): x not in list
 [4, 6, 2]
 >>>
 
+# make copy of a list - you can use copy() function or assignment function
+>>> a
+[4, 6, 2]
+>>> b=a.copy()
+>>> b
+[4, 6, 2]
+>>> c=b
+>>> c
+[4, 6, 2]
+>>>
