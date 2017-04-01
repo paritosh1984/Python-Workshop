@@ -5,6 +5,8 @@
 >>> a=list()
 >>> a
 []
+
+# append() function is used to add an element to the end of the list
 >>> a.append(10)
 >>> a
 [10]
