@@ -63,7 +63,8 @@ ValueError: list.remove(x): x not in list
 >>> a
 [10, 20, 'abc', 1, 2, 1, 2]
 
-# pop() can also 
+# pop() can also pop an element from location 'i', for example,
+# in the following code, we pop an element from index - 2 
 >>> a
 [10, 20, 'abc', 1, 2, 1, 2]
 >>> a.pop(2)
