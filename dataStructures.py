@@ -98,4 +98,23 @@ ValueError: list.remove(x): x not in list
 2
 >>>
 
+# to find index of an element within a subsection of list
+>>> a.extend([5,4,6])
+>>> a
+[1, 2, 4, 5, 4, 5, 4, 6]
+>>>
+>>>
+
+# a.index(4,5,7) looks for element 4 in the subsection a[5:8]
+>>> a.index(4,5,7)
+6
+>>>
+
+#accessing element using : operator
+# a[m,n] gives all elements starting with m index and upto (n-1) index.
+>>> a
+[1, 2, 4, 5, 4, 5, 4, 6]
+>>> a[0:4]
+[1, 2, 4, 5]
+>>>
 
