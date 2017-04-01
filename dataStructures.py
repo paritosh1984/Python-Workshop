@@ -39,6 +39,7 @@
 [10, 'vivek', 20, 'abc', 1, 2, 1, 2, 4]
 >>>
 
+# remove() function is used to remove an element from a list based on value
 >>> a
 [10, 'vivek', 20, 'abc', 1, 2, 1, 2, 4]
 >>> a.remove('vivek')
