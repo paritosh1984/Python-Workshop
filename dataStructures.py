@@ -52,3 +52,22 @@ Traceback (most recent call last):
 ValueError: list.remove(x): x not in list
 >>>
 
+#pop is used to extract last element from the list 
+>>> a
+[10, 20, 'abc', 1, 2, 1, 2, 4]
+>>>
+>>>
+>>>
+>>> a.pop()
+4
+>>> a
+[10, 20, 'abc', 1, 2, 1, 2]
+
+# pop() can also 
+>>> a
+[10, 20, 'abc', 1, 2, 1, 2]
+>>> a.pop(2)
+'abc'
+>>> a
+[10, 20, 1, 2, 1, 2]
+>>>
