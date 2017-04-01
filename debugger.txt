@@ -1,0 +1,7 @@
+#Python debugger
+
+python -m pdb <script.py>
+
+# next line - n
+# Go inside function - s
+#break point - b <line_number>
