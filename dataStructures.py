@@ -131,3 +131,21 @@ ValueError: list.remove(x): x not in list
 >>> a
 [6, 5, 5, 4, 4, 4, 2, 1]
 >>>
+
+# reversre() function changes the order of the list, 
+>>> a
+[6, 5, 5, 4, 4, 4, 2, 1]
+>>>
+>>>
+>>> a.reverse()
+>>> a
+[1, 2, 4, 4, 4, 5, 5, 6]
+>>>
+
+>>> a=[2,6,4]
+>>>
+>>> a.reverse()
+>>> a
+[4, 6, 2]
+>>>
+
