@@ -1,1 +1,10 @@
-# Python-Workshop
+# 1st Python Bootcamp
+
+## Syllabus
+
+## Instructors
+
+
+## Schedule
+
+
