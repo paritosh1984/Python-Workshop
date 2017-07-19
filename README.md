@@ -4,6 +4,13 @@
 
 ## Instructors
 
+Vivek Singh
+Doctoral Student
+ISDS, MUMA College of Business
+
+Deepak George
+Masters in BAIS
+ISDS, MUMA College of Business
 
 ## Schedule
 TBA
