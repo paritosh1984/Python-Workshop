@@ -9,6 +9,12 @@ pip install ipython
 
 ```
 
+To run the notebook, type following in your terminal
+
+```
+jupyter notebook
+```
+
 Documentation: http://jupyter-notebook.readthedocs.io/en/latest/
 
 
