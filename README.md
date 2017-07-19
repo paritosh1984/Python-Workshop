@@ -1,4 +1,4 @@
-# 1st Python Bootcamp
+# 1st Python Bootcamp (Information Systems Decison Sciences, MUMA College of Business, USF, FL).
 
 ## Syllabus
 
