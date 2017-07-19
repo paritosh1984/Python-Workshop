@@ -1,5 +1,7 @@
 # IPython
-https://ipython.org/notebook.html
 
-#anaconda download
+https://ipython.org/install.html
+
+# Anaconda
+
 https://www.continuum.io/downloads#windows
