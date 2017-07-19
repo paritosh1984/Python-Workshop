@@ -9,6 +9,9 @@ pip install ipython
 
 ```
 
+Documentation: http://jupyter-notebook.readthedocs.io/en/latest/
+
+
 # Anaconda
 
 https://www.continuum.io/downloads#windows
