@@ -12,4 +12,12 @@ datetime.datetime(2015, 1, 27, 4, 7, 19, tzinfo=tzutc())
 1
 >date.year
 2015
+>date.day
+27
+>date.hour
+4
+>date.minute
+7
+>date.second
+19
 ```
