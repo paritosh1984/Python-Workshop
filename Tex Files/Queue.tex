@@ -1,0 +1,114 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Queue Data Structure}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{What is a Queue}
+\begin{itemize}
+
+\item A queue is an ordered collection of items.
+
+\item Data items are added through one end called the “rear” and removed through the other called the “front”.
+
+
+\item It follows the FIFO ordering principle also known as "first-come first-served.”
+ 
+
+\item Ticket counters and Printing tasks in a library are real world examples of a queue.
+
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Essential Operations in a Queue}
+\begin{itemize}
+
+\item Enqueue - Ability to add a new item to the queue.
+
+\item Dequeue - Ability to remove an item from the queue.
+
+\item Ability to check if the queue is empty.
+
+\item Ability to check the size of the queue.
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Logical Approach to Implementing a Queue}
+\begin{itemize}
+
+\item We need to be able to create new queue instances on the go. Hence we will take an object oriented approach towards building a Queue and defining its behavior.
+
+\item The list data structure provides us with the methods to perform all these operations.
+
+\item Enqueuing can be done from the rear end using insert() method at index position 0 so the insertion operation will be a O(1) operation.
+
+\item Dequeuing can be done from the front end using the pop() method in lists.
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Continued..}
+\begin{itemize}
+
+
+
+\item The comparator operator will return a True/False based on the fact that the queue is empty or not.
+
+\item The len() method can be used to check the size of the queue.
+
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python code}
+
+Code Implementation in Python
+\begin{lstlisting}[language=Python]
+
+class Queue:
+	def __init__(self):
+		self.items = []
+	def is_empty(self):
+		return self.items == []
+	def add(self, item):
+		self.items.insert(0,item)
+	def remove(self):
+		return self.items.pop()
+	def length(self):
+		return len(self.items)
+\end{lstlisting}
+
+\end{frame}
+\end{document}
+
