@@ -1,0 +1,85 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Pandas}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+ 
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Pandas}
+
+\begin{itemize}
+
+\item Pandas is an important python library to work with files.
+
+\item Key data structures: dataframe, Series, and Panel
+
+\item Dataframe holds a matrix and useful in the statistical analysis.
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Workign with CSV}
+
+read a file in pandas
+
+dataframeName = pandas.read_csv('filename', escapechar='\\', names=['col1', 'col2',])
+
+show the index of a pandas data frame
+
+dataframeName.index
+
+show any row in the pandas dataframe based on index
+
+dataframeName.iloc[0]
+
+show a set of rows
+
+dataframeName.iloc[0:10]
+
+write dataframe to csv
+
+dataframeName.to_csv('filename.csv')
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Exercise}
+
+Q. Read a csv file into pandas dataframe and select half of the rows from the top and store in another pandas dataframe.
+\end{frame}
+
+\begin{frame}
+\frametitle{Thank You}
+
+\end{frame}
+
+
+\begin{document}
+
+
+
+
