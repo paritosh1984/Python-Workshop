@@ -1,0 +1,249 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{List Data Structure}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Introduction to Lists}
+A list is a powerful yet simple data structure that helps us
+\begin{itemize}
+
+\item to build other complex data structures.
+
+\item create new data types and behaviors.
+
+\item store and retrieve data in a sequential way.
+
+\end{itemize}
+
+In simple terms, it is a collection of data elements ordered sequentially.
+
+Python provides  us with a List collection type.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Notion of List}
+\begin{itemize}
+
+\item In the event that the language does not have a built in List type, the notion of a List has to be implemented.
+
+\item Recall that an abstract data type is only a Mathematical notion and it needs to be physically implemented to become a data structure.
+
+\item The behavior of the list can be easily implemented by defining functions.
+
+\end{itemize}
+
+There are two types of Lists
+
+\begin{itemize}
+
+\item An Unordered List
+\item An Ordered List
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+The Unordered List
+
+\begin{itemize}
+
+\item In an unordered list, each item in the collection holds a relative position with respect to other items.
+
+\item There is no emphasis on maintaining positioning of items in contiguous memory blocks.
+
+\item Hence there needs to be a mechanism to identify the location of each item in the memory.
+
+\item This can be realized by using a construct known as a Linked list.
+
+\item In a Linked list, each element holds a reference to the next element in the list.	
+
+\item This is an explicit mechanism that helps each item identify the next item in the list.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+
+\item This helps us to maintain the relative positioning of the items which is the integral characteristic of an unordered list.
+
+\item Thus, each item can be accessed by simply following the links.
+
+\item The most important knowledge here is that the location of the first item in the list must be explicitly specified.
+
+\item The first element in the list is called the head and it holds the handle to accessing the rest of the content in the list.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Node}
+A Node is the fundamental building block of a List.
+\begin{itemize}
+
+\item Each Node contains two essential pieces of information.
+
+\item First, it should contain the item itself which contains the data of that particular node.
+
+\item Second, the node contains a reference to the following node in the list.
+
+\end{itemize}
+This notion of a node can be implemented using a Class construct with attributes and methods as follows, 
+
+\begin{itemize}
+\item data - contains the data stored in the item
+\item next - contains a reference to the next item.
+\item methods to set and get the data and the reference.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python code}
+
+Code Implementation in Python
+\begin{lstlisting}[language=Python]
+
+class Node:
+	def __init__(self, init_data):
+		self.data = init_data
+		self.next = None
+	def get_data(self):
+		return self.data
+	def get_next(self):
+		return self.next
+	def set_data(self, new_data):
+		self.data = newdata
+	def set_next(self, new_next):
+		self.next = new_next
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{The Unordered List Class}
+The unordered List is constructed by using a Node as the fundamental building block. Each Node represents an item in the List.
+
+\begin{itemize}
+
+\item As previously stated, the reference to the first item in the list is the only way to access the entire list.
+
+\item The class definition should therefore contain an attribute to represent the first item, which we commonly refer to us "Head".
+
+\begin{lstlisting}[language=Python]
+class UnorderedList:
+	def __init__(self):
+		self.head = None
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Continued..}
+Notice that in the class definition, we used the special Python type "None".
+
+The reasons and advantages to use "None" are many,
+
+\begin{itemize}
+\item The special reference None can be used to state that the head of the list does not refer to anything as yet.
+
+\item if the "next" attribute of a Node contains "None", it means there is  no next node in the list.
+\end{itemize}
+Also it is important to understand that the list class itself does not contain any node objects. 
+
+It only contains a single reference to only the first node in the linked structure.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Essential Operations in a List}
+
+\begin{itemize}
+\item Create List instances on the go.
+\item Ability to check if the list is empty.
+\item More importantly, the ability to add items to the list in an efficient manner.
+\item Ability to remove items from the list.
+\item Ability to search and find an item in the list.
+\item To find the number of items (size) in the list.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementing the Add Method}
+The most important feature of a list is the ability to add elements to it. 
+
+And Python lists are not limited by the type of data that can be added to the list. It is versatile.
+
+It could be implemented as follows, 
+\begin{itemize}
+
+\item Since this is an unordered list, the position of the new item in the list in relation with other items is not important.
+
+\item The item only needs to be added to the list and become part of the linked structure.
+
+\item Thereby, we could think of ways to add the element to the easiest position possible, which happens to be the head of the list.
+
+\item The advantage is obvious that the add operation will always be O(1).
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Implementing the Add Method..}
+\begin{itemize}
+\item Recall that each item in the List is a Node and the linked list provides only a single entry point to the entire structure.
+
+\item Hence, adding the new item to the head is the best possible approach.
+
+\end{itemize}
+It works in two important steps,
+\begin{itemize}
+
+\item The "next" reference of the new item(node) will point to the current "Head" of the list.
+
+\item The new item then replaces the existing "Head" item to become the new head of the list.
+
+\end{itemize}
+
+The order of these two steps is of extreme importance to protect the integrity of the structure. 
+ 
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{lstlisting}[language=Python, keywordstyle=\color{blue}]
+def add(self, item):
+	temp = Node(item)
+	temp.set_next(self.head)
+	self.head = temp
+	name="vive" # this is code
+	for i in range(1,10):
+		print(i)
+\end{lstlisting}
+\end{frame}
+\end{document}
+

@@ -1,0 +1,151 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{The Ordered List Data Structure}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+
+\begin{frame}
+\frametitle{The Ordered List}
+\begin{itemize}
+
+\item An ordered list is another implementation of the List data structure.
+
+\item In this type, the items of the list maintain a relative position to each other, in that they are ordered.
+
+\item The ordering is typically ascending or descending based on the choice of implementation.
+
+\item The list items must have a meaningful comparison operation in place.
+
+\item Many of the operations of the ordered list are the same as the unordered list where the ordered characteristic is not involved.
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Essential operations in an Ordered List}
+\begin{itemize}
+
+\item Ability to create List instances.
+\item Ability to add items to the list while also making sure that the ordering is preserved. We assume the item is not already present in the list.
+
+\item Ability to remove an item from the list.
+\item Searching and finding an item.
+\item Ability to check if the list is empty or not.
+\item Find out the size of the list.
+
+\item Removing the last item in the list by popping it.
+
+\item Returning the index position of a list item.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Implementing an Ordered List}
+In order to implement the ordered list, we must keep a couple of things in 
+
+\begin{itemize}
+\item Keep the ordered structure intact.
+\item Use the linked structure and Node to achieve the relative positioning of the items.
+\item Like in the unordered list, once again, an empty list will be denoted by a head reference to None.
+\item All the operations, except the search and add will be a little different compared to the unordered list.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Search Operation}
+
+The search operation works pretty much similar to a search in unordered list.
+
+\begin{itemize}
+\item The same link traversal mechanism is used, but since, the items are sorted, the  operation is more efficient here.
+
+\item For example, if in a list containing [17,23,45,68,78,79,90], we are looking for 48.
+
+\item When the links are traversed in search of the item, after 45 is passed, when the next node with value 68 is visited.
+
+\item The comparison will result in a value greater than the item being searched for and therefore the search will be terminated right there.
+
+\item Because, the underlying characteristic of the list has already told us that going further is inconsequential. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Python]
+def search(self, item):
+	current = self.head
+	found = False
+	stop = False
+	while current != None and not found and
+	 	not stop:
+		if current.get_data() == item:
+			found = True
+		else:
+			if current.get_data() > item:
+				stop = True
+			else:
+				current = current.
+				get_next()
+	return found
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Add operation}
+The add method differs very much from the add method in the Unordered list.
+
+\begin{itemize}
+\item Using Link traversal, we must traverse the list to find out where the item could be inserted depending on the order.
+
+\item For example, in our list containing the following elements [17,23,45,68,78,79,90], if we have to add 75, the method should know that it goes in between 68 and 78.
+
+\item It is therefore helpful to go with an additional reference along with the current reference as seen in previous exercises. 
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Python]
+
+def add(self, item):
+	current = self.head
+	tail = None
+	stop = False
+	while current != None and not stop:
+ 		if current.get_data() > item:
+ 			stop = True
+ 		else:
+			tail = current
+			current = current.get_next()
+
+	temp = Node(item)
+	if tail == None:
+		temp.set_next(self.head)
+		self.head = temp
+	else:
+		temp.set_next(current)
+		tail.set_next(temp)
+\end{lstlisting}
+\end{frame}
+\end{document}
+
