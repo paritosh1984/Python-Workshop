@@ -1,0 +1,113 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Python Sequences}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Objectives}
+\begin{itemize}
+\item To understand built-in data sequence types such as Lists, Sets, Tuples and Dictionaries.
+\item To understand their use and advantages.
+\item To understand iterations and constructs that support sequences.
+\item To learn the different operations that could be performed on these types.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Lists}
+\begin{itemize}
+\item Lists are a collection of data elements arranged sequentially.
+\item They are mutable in nature, in that they can be appended to, and data removed from.
+\item Lists are enclosed by a pair of squared brackets '[]'
+\item Lists in Python are heterogeneous. A list can contain any different type of data.
+\item Lists are especially good for keeping track of things that might change.
+\item A list could be created by saying [] or list().
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Creating a List of Lists}
+A list could be created with other lists as elements of it.
+\begin{lstlisting}[language=Python]
+>>>cities = ['Chicago','San Francisco','New York']
+>>>metros = ['Dallas','Las Vegas', cities]
+['8','11','2017']
+\end{lstlisting}
+\begin{itemize}
+\item Changing the cities list here modifies the  metros list as well.
+\item This is because, cities is just a reference to the block of memory containing "cities list" and that is being reflected in the metros list.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Data Type Conversions in Lists}
+Converting a string to a list as easy as list('Python')
+
+A string could also be converted into a List by using the split() method by splitting at a character of our choice.
+
+\begin{lstlisting}[language=Python]
+>>>birthday = '8/11/2017'
+>>>birthday.split('/')
+['8','11','2017']
+\end{lstlisting}
+A list can be converted to a String using join() as follows:
+\begin{lstlisting}
+>>>list = ['I','love','Python']
+>>>' '.join(list)
+'I love Python'
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Common List Operations}
+The following are the common operations in List.
+\begin{itemize}
+\item Adding elements to the list using add, append and insert.
+\item Indexing and Slicing.
+\item Modifying the list using indexing and Slicing techniques.
+\item Concatenating Lists.
+\item Removing items from the list using "del" remove and pop.
+\item Determining the membership of an item and counting the number of items.
+\item Searching and Sorting the list.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tuples}
+Similar to lists, tuples are sequences of arbitrary items. 
+\begin{itemize}
+\item Tuples are is the immutable collection sequence type in Python.
+\item Tuples can’t be modified using add, delete, or changing of items after the tuple is defined. A tuple is this a constant list.
+\item A tuple can be created using ().
+\item Notice that a list can be created as follows "list()".
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tuple Unpacking}
+\begin{itemize}
+\item Multiple variables can be assigned at one go using Tuples in Python
+\item This underlying nature has a bigger advantage in Python is a few  operations such as variable swapping.
+\item In other programming languages, particularly statically-typed language, it is more complicated than how it's done in Python.
+\item Without the use of a temporary variable, unlike in other languages, in Python, two variables can be swapped as follows:
+a,b = b,a
+\end{itemize}
+\end{frame}
+\end{document}

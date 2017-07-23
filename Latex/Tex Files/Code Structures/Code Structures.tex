@@ -1,0 +1,211 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Code Structures in Python}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Objectives}
+\begin{itemize}
+\item To understand coding constructs like conditional statements, loops and iterations.
+\item To understand Comprehensions using Sequential Data Types.
+\item To Learn and implement Functions and Generators.
+\item To understand exceptions and ways to solve them. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{If.. else Constructs}
+Python, like most other programming languages implements conditional statements using if..else constructs.
+
+In general the if..else statement is used to check if a condition is True or False and based on the decision, decide whether or not to go ahead with the subsequent instruction.
+For example,
+\begin{lstlisting}[language=Python]
+
+interesting = True
+if interesting:
+	print('Learn more about it..!')
+else:
+	print('Move on..')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Checking Multiple Conditions}
+More than one condition could be checked as follows:
+\begin{lstlisting}[language=Python]
+
+interesting = True
+easy = True
+if interesting and easy:
+	print('Learn more about it..!')
+else:
+	print('Move on..')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Nested Conditions}
+Conditional statements could be nested as follows:
+\begin{lstlisting}[language=Python]
+
+interesting = True
+easy = True
+if interesting:
+	if easy:
+		print('Easy for you..!')
+	else:
+		print('Keep practicing..!')
+else:
+	print('Move on..')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiple Conditional Possibilities}
+In the event that there are more than 2 possibilities, we use a special construct called the elif which is just the shortened version of else..if.
+\begin{lstlisting}[language=Python]
+
+time = 'morning'
+if time == 'morning':
+    print('Its time for Breakfast!!')
+elif time == 'noon':
+    print('Its time for lunch')
+elif time == 'night':
+    print('Its time for lunch')
+else:
+    print('I am hungry all the time anyways :(')
+	
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Coding Exercise}
+Try and answer why only the first if loop is getting executed and not the second one.
+\begin{lstlisting}[language=Python]
+a = [1,2,3]
+b = [1,2,3]
+
+if a==b:
+    print('They are equal')
+if a is b:
+    print('I said they are equal!!')
+	
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Coding Exercise}
+Now that you have mastered the art of variable comparison in Python, answer this.
+\begin{lstlisting}[language=Python]
+a = 256
+b = 256
+a == b
+True
+a is b
+True
+
+a = 257
+b = 257
+a == b
+True
+a is b
+False
+	
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Possible False Conditions}
+These are some of the possible conditions that could result in False
+\begin{lstlisting}[language=Python]
+boolean False
+null None
+zero integer 0
+zero float 0.0
+empty string ''
+empty list []
+empty tuple ()
+empty dict {}
+empty set set()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Examples}
+\begin{lstlisting}[language=Python]
+# Example 1
+a = 0
+if a:
+	print('Its  True')
+else:
+	print('Its False')
+
+# Example 2
+def add(x,y):
+    if type(x) is int and type(y) is int:
+        return(x+y)
+
+if sum:
+    print('The sum is', sum)
+else:
+    print('I dont see no sum')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Repeat with While}
+While is the simplest looping construct that helps us to repeat a step any number of times as long as the condition evaluates to True.
+\begin{lstlisting}[language=Python]
+count = 1
+while count < 5:
+    print('The count is', count)
+    count += 1
+\end{lstlisting}
+Using break can help us break the loop midway.
+\begin{lstlisting}[language=Python]
+count = 1
+while count < 5:
+    print('The count is', count)
+    count += 1
+    if count == 3:
+    	break
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Use of Continue}
+Continue can be used to continue with the loop.
+\begin{lstlisting}[language=Python]
+while True:
+    value = input("Enter an integer of choice. Press q to quit: ")
+    if value == 'q': # quit
+        break
+    else:
+        number = int(value)
+        if number%2 == 0:
+            print(number, "squared is",\
+             number*number)
+            continue
+        else:
+            break
+        
+\end{lstlisting}
+\end{frame}
+\end{document}

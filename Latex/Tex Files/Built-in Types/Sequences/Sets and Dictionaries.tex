@@ -1,0 +1,104 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Dictionaries and Sets}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Dictionaries}
+\begin{itemize}
+\item A dictionary is similar to a list, in that it is a collection of items.
+\item Unlike lists, the order of the items doesn't matter.
+\item Dictionary elements are not identified by offset indicing as seen in lists (0,1,2..).
+\item Instead, in dictionaries, the items are key-value pairs and they are uniquely identified by the keys as they are unique. 
+\item The keys are usually of String type, but they can be any immutable type in Python as integers, Booleans, floats and Tuples.
+\item Dictionaries are perfectly mutable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Creating a Dictionary}
+\begin{lstlisting}
+>>>empty_dict = {}
+>>>empty_dict
+{}
+# Creating a dictionary with key-value pairs.
+>>>capitals={'New York':'Albany',
+'California':'Sacramento'}
+>>>capitals
+{'California': 'Sacramento', 'New York': 'Albany'}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Converting other Sequences into Dictionaries}
+\begin{lstlisting}
+# A list of two-item tuples:
+>>>my_tuple = [ ('a', 'b'), ('c', 'd'), ('e', 'f') ]
+>>>my_dict = dict(my_tuple)
+{'a': 'b', 'c': 'd', 'e': 'f'}
+
+# A list of two-item lists:
+>>>my_list = ( ['a', 'b'], ['c', 'd'], ['e', 'f'] )
+>>>my_dict = dict(my_list)
+{'c': 'd', 'a': 'b', 'e': 'f'}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Continued..}
+\begin{lstlisting}
+# A list of two-character strings:
+>>>my_str_list = [ 'ab', 'cd', 'ef' ]
+>>>my_dict = dict(my_str_list)
+>>>my_dict
+{'a': 'b', 'c': 'd', 'e': 'f'}
+
+# A tuple of two-character strings:
+>>>my_str_tuple = ( 'ab', 'cd', 'ef' )
+>>>my_dict = dict(my_str_tuple)
+>>>my_dict
+{'a': 'b', 'c': 'd', 'e': 'f'}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Operations in Dictionaries}
+\begin{itemize}
+\item Adding and modifying key-value pairs.
+\item Combine Dictionaries with Update().
+\item Deleting items.
+\item Deleting all items using clear().
+\item Membership test.
+\item Fetching items from the dictionary.
+\item Assigning using assignment sign and by copying.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sets in Python}
+\begin{itemize}
+\item Sets are similar to lists, but only the items are unique. No duplication is allowed.
+\item A set can be created as follows: set() or by using the curly braces with one or more comma-separated values.
+\item Sets are unordered just like Dictionaries.
+\item An empty pair of curly braces will only create a dictionary and not a set.
+\item The Python interpreter prints an empty set as set() and not as {}.
+\end{itemize}
+\end{frame}
+\end{document}
