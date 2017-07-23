@@ -1,0 +1,274 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+ 
+%Information to be included in the title page:
+\title{Built-in Data Types in Python}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Objectives}
+
+\begin{itemize}
+\item To understand built-in data types such as integers, floats, strings and Boolean type.
+\item To learn their usage and specific behavior.
+\item To understand objects in Python.
+\item To understand dynamic typing in Python type conversion.
+\item To understand variables and references.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Objects in Python}
+\begin{itemize}
+\item In Python, every data structure is an object. 
+\item Integers, Strings, Lists, Functions, Modules are all implemented as objects. 
+\item An object is in its simple definition a  block(s) of memory that contains data in it.
+\item The data has a type associated with it and consequentially a set of behaviors and what could be done on/with it.
+\item The type of data also determines its mutability and immutability.
+\item The advantage of this implementation is consistency.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Dynamic Typing in Python}
+\begin{itemize}
+\item Python is a dynamically typed language.
+\item Unlike statically-typed languages like Java or C++, Python does not attach the type of an object to its variable identifier.
+\item Instead, the assignment of an object to an identifier simply attaches a name to the block of memory containing the data and acts only a reference to it. 
+\item In python, we use the type() method to identify the type of the variable.
+\end{itemize}
+\begin{lstlisting}[language=Python, keywordstyle=\color{blue}]
+	# Code to identify data type
+	a = 10
+	print(a)
+	type(a)
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Rules for Identifier Names}
+The following are some of the rules associated with identifier names in Python.
+The following characters are allowed in identifier names.
+\begin{itemize}
+\item Lowercase letters (a through z)
+\item Uppercase letters (A through Z)
+\item Digits (0 through 9)
+\item \begin{lstlisting}[language=Python]
+Underscore (_)
+\end{lstlisting}
+\end{itemize}
+Their usage is as follows.
+\begin{itemize}
+\item Names cannot begin with a digit as seen in most programming languages. 
+\item Python treats names that begin with an underscore in special ways.
+\item Reserved keywords in Python cannot be used for identifier names.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Unique Operations in Python}
+Python offers some unique flavors in the most common operations we use on a daily basis:
+
+Python offer two types of division operation.
+\begin{lstlisting}[language=Python]
+/ carries out decimal division.
+7/2 = 3.5.
+// carries out integer division also called 
+as floor division.
+7//2 = 3
+
+x = 77
+x //= 10
+x
+[Output] 7
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Assignment and Operation in Python}
+Python offers some unique flavors in the most common operations we use on a daily basis:
+
+Python offer two types of division operation.
+\begin{lstlisting}[language=Python]
+Adding two integers (numbers) could be done as simple as 
+a = 95
+a -= 3
+a
+[Output] 92
+a *= 2
+a
+[Output] 184
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Other Operations in Python}
+\begin{lstlisting}[language=Python]
+Modulo operation 9%5 = 4
+
+Getting the reminder & quotient can 
+be done by using divmod()
+
+divmod(9,5) = (1,4)
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Type Conversions in Python}
+Python offers way to convert one type into another:
+
+\begin{lstlisting}[language=Python]
+Converting a Boolean to int
+
+>>>int(True)
+1
+>>>int(False)
+0
+
+Converting a Float to int
+
+>>>int(55.5)
+55
+>>>int(1.0e4)
+10000
+
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Continued..}
+Python offers way to convert one type into another:
+
+\begin{lstlisting}[language=Python]
+Converting a String to int
+>>>int('99')
+99
+>>>int('-55')	
+-55
+
+Converting an int to char
+>>>chr(97)
+'a'
+Getting the ASCII code of a character.
+>>>ord('a')
+97
+
+ord() and chr() are built-in functions in Python.
+
+footnote - Refer https://docs.python.org/3/library/functions.html for more details.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Integer Overflow}
+\begin{itemize}
+\item Python handles really long numbers with ease.
+\item This is a feature which most Programming languages have a problem with commonly referred to a s "Integer overflow".
+\item For example 10**100 (10 raised to the power 100) will result in a huge number called the googol.
+\item Even if an multiplication is to be performed between two googols, Python can easily handle that math and support the operation.
+\item Lets try it.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Floats in Python}
+Floats are numbers with decimal points. 
+\begin{itemize}
+\item All the operations that work on integers can be applied to floats as well.
+\item Float type conversion can be done using float()
+\item Strings can be converted to floats as well.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Strings in Python}
+A String is a sequence type in Python. It is basically a string of characters.
+\begin{itemize}
+\item In Python, Strings are immutable.
+\item The data in a String cannot be modified, but copies can be created.
+\item Strings in Python 3 support unicode operations.
+\item In Python, Strings can be written using both single and double quotes, which allows  double quotes to be written within single quotes and vice versa.
+
+\end{itemize}
+\begin{lstlisting}[language=Python]
+>>>'Python'
+Python
+>>>"Python"
+Python
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Triple Quotes and Docstrings}
+Triple Quotes is a unique flavor offered by Python.
+\begin{itemize}
+\item They are most commonly used to create multi-line Strings.
+\item One of their most common uses is in creating docstrings.
+\item A docstring is a string literal specified in a function or any piece of code as a comment, to document that specific segment of code.
+ 
+\end{itemize}
+
+\begin{lstlisting}[language=Python]
+	def add(x,y):
+		'''The function add two integers
+		and returns the sum.'''
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Continued..}
+There are two ways to see the docstring.
+
+\begin{lstlisting}[language=Python]
+	def add(x,y):
+		'''The function add two integers
+		and returns the sum.'''
+	 
+	help(add)
+	Help on function add in module __main__:
+
+	add(x, y)
+    	The function adds two integers 
+    	and returns the sum.
+    	
+    add.__doc__
+    'The function adds two integers \n and 
+    returns the sum.'
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Common String Operations}
+The following are some of the common operations in a String.
+\begin{itemize}
+\item String Concatenation.
+\item Duplication.
+\item Replacing a substring.
+\item Indexing and Slicing.
+\item Finding the length.
+\item Splitting and Stripping.
+\item String formatting operations.
+\end{itemize}
+\end{frame}
+\end{document}
