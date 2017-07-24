@@ -1,0 +1,219 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Functions in Python}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Functions in Python}
+\begin{itemize}
+\item Functions are the best way to enclose all the pieces of code that need to be used over and over again.
+\item Functions improve re-usability and readability.
+\item Functions have a name and may or may not take arguments.
+\item A function may or may not return data.
+\item Functions need to be defined before being called.
+\item In Python, we define a function using the "def" keyword.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A simple Function in Python}
+The following function shows a typical Python function.
+\begin{lstlisting}[language=Python]
+	def add(x,y):
+		return(x+y)
+\end{lstlisting}
+\begin{itemize}
+\item Its defined using "def".
+\item It has a name "add" and takes in two arguments x and y.
+\item Notice that x and y are not limited by any data type and are mere variables that point to an object in memory.
+\item The function returns the sum of the two variables.
+\item Notice that there is no need to use curly braces or enclosing mechanism to enclose the function body.
+\item Instead, Python uses indentation to mark a block of code.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Continued}
+In the previous example, the function returned a value. In some situations, there could be functions that don't return anything at all.
+\begin{lstlisting}[language=Python]
+def print_something(message):
+	print(message)
+\end{lstlisting}
+
+The following function is a special case where there is no return, neither does it do anything. We use a special keyword 'pass' in Python to accomplish this.
+\begin{lstlisting}[language=Python]
+def do_nothing():
+	pass
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Enclosing Code Blocks in Function}
+A real function that does an actual operation looks like this:
+\begin{lstlisting}[language=Python]
+import datetime
+def meal_time(time):
+    print(time)
+    if time<=10 and time>= 8:
+        print('Time for Breakfast')
+    if time<=14 and time>= 12:
+        print('Time for Lunch')
+    if time<=20 and time>= 18:
+        print('Time for Dinner')
+
+hour = datetime.datetime.now().hour
+meal_time(hour)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Positional Arguments}
+\begin{itemize}
+\item Python handles function arguments in an exceptionally flexible manner compared to other languages.
+\item Having Positional arguments is the most common approach to passing parameters to the function in order.
+Example,
+\begin{lstlisting}[language=Python]
+def language_rating(lang, rating):
+	print('I rate {} {}/10.'.\
+	format(lang,rating))
+\end{lstlisting}
+\item The problem with Positional Arguments is that we need to remember the order of the arguments while passing values to them.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Keyword Arguments}
+To avoid the confusion of Positional arguments, we have keyword arguments.
+\begin{itemize}
+\item Here, we can specify arguments by the names of their corresponding parameters.
+\item This avoids the confusion of ordering.
+Example,
+\begin{lstlisting}[language=Python]
+def language_rating(lang, rating):
+	print('I rate {} {}/10.'.\
+	format(lang,rating))
+
+language_rating(rating=10,lang='Python')
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Mixing Positional and Keyword Arguments}
+Keyword and Positional arguments could be mixed as well. But it should be noticed that Positional arguments should always be specified first.
+\begin{lstlisting}[language=Python]
+def language_rating(lang, rating):
+	print('I rate {} {}/10.'.\
+	format(lang,rating))
+
+language_rating('Python',rating=10)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Specifying Default Parameter Values}
+Arguments can be set with default values as follows:
+
+\begin{lstlisting}
+def language_rating(rating, lang='Python'):
+	print('I rate {} {}/10.'.\
+	format(lang,rating))
+
+language_rating(10)
+\end{lstlisting}
+Note that the default arguments should come in the end.
+Passing values to the default argument will replace the default value as follows:
+\begin{lstlisting}
+def language_rating(rating, lang='Python'):
+	print('I rate {} {}/10.'.\
+	format(lang,rating))
+
+language_rating(10,'Java')
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Positional Arguments with *}
+The asterisk can be used to accept variable number of arguments.
+\begin{itemize}
+\item The asterisk groups a variable number of positional arguments into a tuple of parameter values.
+\end{itemize}
+\begin{lstlisting}
+def print_args(*args):
+    print('Positional argument tuple:', args)
+
+print_args('hello','world',5,6.0,True)
+
+#If you call it with no arguments, you get nothing in *args:
+print_args()
+Positional argument tuple: ()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Keyword Arguments with **}
+We could use "**" to gather keyword arguments into a dictionary where the argument names are the keys and values are the corresponding dictionary values:
+
+\begin{lstlisting}
+def print_kwargs(**kwargs):
+    print('Keyword arguments:', kwargs)
+print_kwargs(NYC='Albany', California='Sacramento')
+Keyword arguments: {'NYC': 'Albany',
+ 'California': 'Sacramento'}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Passing Functions as Arguments}
+We can pass Functions as arguments to other functions as functions are objects in Python.
+\begin{lstlisting}[language=Python]
+	def add(x,y):
+		return(x+y)
+	def arithmetic(func,x,y):
+		return(func(x,y))
+	arithmetic(add,5,10)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lambda Functions}
+Lambda functions are used to create anonymous on the go functions in place of little functions which might not be reused later.
+
+Lambda functions can be expressed in a single statement.
+\begin{lstlisting}[language=Python]
+def edit_text(sentence, func):
+    words = sentence.split()
+    final_sentence = " ".join(func(word)\
+     for word in words)
+    return(final_sentence.strip())
+    
+def capitalize_sentence(word):
+    return word.capitalize()
+    
+sentence = 'do i wanna know by arctic monkeys'
+edit_text(sentence,capitalize_sentence)
+\end{lstlisting}
+\end{frame}
+\end{document}
