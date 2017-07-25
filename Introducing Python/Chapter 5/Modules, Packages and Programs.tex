@@ -1,0 +1,188 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Modules, Packages and Programs}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Objectives}
+\begin{itemize}
+\item To learn about packages, modules and programs.
+\item To understand the reusability of Python Packages and how they could be imported  into another program.
+\item To learn how to create packages and modules.
+\item To learn how to create standalone programs and run them from the interactive prompt.
+\item To understand how to move away from interactive programming to creating standalone programs with function calls, namespaces and deriving the the desired output.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{First Standalone Program}
+\begin{itemize}
+\item Create a file called ex1.py in your local machine. And open it in edit mode.
+\item Write the following piece of code.
+\begin{lstlisting}
+print('Hello, World!')
+\end{lstlisting}
+\item The line should print the message on the screen when it is executed.
+\item To run the file, we'll use the interactive  prompt (terminal for Mac users).
+\item At the prompt, we'll say python ex1.py and hit return.
+\item The message "Hello, World!" should come up on the prompt.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command Line Arguments}
+\begin{itemize}
+\item Arguments can be passed to our program directly from the command line as well.
+\item Lets create a second file called ex2.py and write the following line of code in it.
+\begin{lstlisting}
+import sys
+print('Program arguments : ', sys.argv)
+\end{lstlisting}
+\item Execute the code from the command prompt as "python ex2.py".
+\item You will notice that the name of the python file was printed as an argument to the command.
+\item Passing a couple of more argument, we can understand that the arguments are internally converted into a list and the first argument to the program is always the file name itself. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Importing Modules}
+\begin{itemize}
+\item A module is only a file of Python code that can be reused.
+\item Modules are reused by simply importing them into the current program. Example:
+\begin{lstlisting}[language=Python]
+dice.py
+def throw_dice():
+	"""Throw your dice like a player!"""
+	from random import choice
+	possibilities = [1,2,3,4,5,6]
+	return choice(possibilities)
+
+ex3.py
+	import dice
+	side = dice.throw_dice()
+	print("You have rolled a ",side)
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Explanation}
+\begin{itemize}
+\item In the example, we see two types of import statements.
+\item In dice.py, we import only the choice function from the random module. This is usually a best practice as it saves on memory and avoids unnecessary code imports.
+\item The random module is a fully standalone python code  with multiple functions and choice is one amongst them.
+\item In the ex3.py file, we import the dice.py module and using dice as a handle, we call the throw\_dice() function of it.
+\item Remember that throw\_dice() method is a property  of the dice object (In python, everything is treated as an object).
+\item The dot notation is used to call the property as seen in dice.throw\_dice().
+\item We are basically qualifying the content of the dice module with the module's name itself.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using Aliases for Module Names}
+\begin{itemize}
+\item Modules can be imported with an alias name as well.
+\item The new alias name can then be used to access any property of the imported module and this results in ease of typing.
+Example,
+\begin{lstlisting}[language=Python]
+import numpy as np
+arr = np.array([1,2,3,4,5])
+print(arr.shape)
+\end{lstlisting}
+\item In the code, we assigned an alias name to the numpy module as 'np'.
+\item It is later used to call the array function of the module as "np.array()".
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Packages}
+\begin{itemize}
+\item Modules can be further organized into file hierarchies called Packages.
+\item Maybe in the previous exercise, we may want to roll one die and sometimes roll two dices.
+\item One way to structure this is to have two separate modules, one for a single dice and another for a pair of dices and each of them will have a function called roll.
+\item It will look something like this. 
+\begin{lstlisting}[language=Python]
+
+single.py
+def roll_dice():
+	"""Roll your dice like a player!"""
+	from random import choice
+	possibilities = [1,2,3,4,5,6]
+	return choice(possibilities)
+\end{lstlisting}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Packages}
+ 
+\begin{lstlisting}[language=Python]
+
+#double.py
+def roll_dice():
+	"""Roll a pair of dice"""
+	from random import choice
+	possibilites = [1,2,3,4,5,6]
+	return(choice([(one, two) 
+	for one in possibilites 
+	for two in possibilites]))
+	
+#__init__.py
+from roll import single
+from roll import double
+
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Packages}
+ 
+\begin{lstlisting}[language=Python]
+
+#ex5.py
+
+from roll import single,double
+
+side = single.roll_dice()
+print("You have rolled a {}".format(side))
+
+sides = double.roll_dice()
+print("You have rolled {} and {}".
+format(sides[0],sides[1]))
+\end{lstlisting}
+
+When the above code is executed, the modules single and double will be imported from the package roll.	
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Packages}
+\begin{itemize}
+\item The way to create a package is to place all the modules in single directory that has been named with the desired Package's name.
+\item The next step is to place a python file called \_\_init\_\_.py for Python to identify the directory as a Package.
+\item Once that is done, we are free to import the entire package or just the select modules from the package into our program.
+\item The methods of the module can be called by by the module name or the name(alias) assigned to the module as part of the import.
+\end{itemize}
+\end{frame}
+\end{document}

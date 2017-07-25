@@ -1,0 +1,146 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Python Standard Library}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+\frametitle{Python Standard Library}
+\begin{itemize}
+\item The Python Standard Library offers ready to import modules for most common tasks in Programming with Python.
+\item These modules help a lot as they perform many useful tasks are kept away from the core language to avoid bloating.
+\item Some Useful resources.
+\begin{itemize}
+\item Documentation of Modules - https://docs.python.org/3/library/
+\item Tutorial on their usage - https://docs.python.org/3.3/tutorial/stdlib.html
+\item Module of the Week by Doug
+Hellmann - https://pymotw.com/2/contents.html
+\item The Python Standard Library By Example Book - https://doughellmann.com/blog/the-python-standard-library-by-example/
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Counter()}
+Counter() is used to count the number of occurrences of a unique element in a sequence.
+Example,
+\begin{lstlisting}[language=Python]
+from collections import Counter
+list = ['Orange','Apple','Mango','Orange']
+list_counter = Counter(list)
+list_counter
+Counter({'Apple': 1, 'Mango': 1, 'Orange': 2})
+\end{lstlisting}
+The most\_common() function returns all elements in descending order, or just the top
+count elements if given a count:
+\begin{lstlisting}[language=Python]
+list_counter.most_common()
+[('Orange', 2), ('Mango', 1), ('Apple', 1)]
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Deque}
+Deque is a special data structure that is a combination of both Stack and Queue. A deque is a double-ended queue. 
+\begin{itemize}
+
+\item Its useful to add and delete elements from both ends of the sequence.
+\item The function popleft() removes the leftmost item and pop() removes the rightmost element.
+\item A deque could be used to create a palindrome checker as follows.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Palindrome Checker Using Deque}
+\begin{lstlisting}[language=Python]
+def palindrome_checker(word):
+    from collections import deque
+    dq = deque(word)
+    while len(dq) > 1:
+        if dq.popleft() != dq.pop():
+            return False
+    return True
+
+palindrome_checker('racecar')
+True
+palindrome_checker('hello')
+False
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Iterate with Itertools}
+Itertools contains special-purpose iteration functions that come in handy in a lot of scenarios.
+
+chain() runs through each argument as though they are all part of one iterable:
+
+\begin{lstlisting}[language=Python]
+import itertools
+for item in itertools.chain([1, 2], ['one', 'two']):
+	print(item)
+\end{lstlisting}
+
+cycle() is an infinite iterator, cycling through its arguments:
+\begin{lstlisting}[language=Python]
+import itertools
+for item in itertools.cycle([1, 2]):
+    print(item)
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Iterate with Itertools}
+
+accumulate() calculates accumulated values. By default, it calculates the sum:
+
+\begin{lstlisting}[language=Python]
+import itertools
+for item in itertools.accumulate([1, 2, 3, 4]):
+    print(item)
+\end{lstlisting}
+
+If a function is passed as the second argument to accumulate(), instead of the default addition operation, that particular function will be performed.
+\begin{lstlisting}[language=Python]
+def multiply(a, b):
+    return a * b
+    
+import itertools
+for item in itertools.accumulate([1, 2, 3, 4], multiply):
+    print(item)
+\end{lstlisting}
+The function should take two arguments and return a single result.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Print Pretty Statements with pprint())
+pprint pretty prints data for us:
+\begin{lstlisting}[language=Python]
+data = [ (i, { 'a':'A','b':'B','c':'C','d':'D','e':'E'})
+         for i in range(3)
+         ]
+from pprint import pprint
+
+# Check the difference between 
+print(data)
+pprint(data)
+\end{lstlisting}
+\end{frame}
+\end{document}

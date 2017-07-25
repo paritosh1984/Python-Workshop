@@ -1,0 +1,192 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Objects and Classes}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{What are Objects?}
+\begin{itemize}
+\item Everything in Python is an object. That includes numbers, strings, sequences, functions, modules and packages.
+\item An object contains both data and the methods that define the behaviour it could be part of in the program.
+\item For example, an integer object contains numerical data and could become part of arithmetic operations such as addition,exponentiation etc.
+\item Objects are instances of larger, concrete templates called as Classes. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classes}
+\begin{itemize}
+\item Classes are used to defined data types and behaviours in Object-oriented programming paradigm.
+\item Once a class is defined, instances of the classes could be spawned easily whenever required.
+\item A simple class definition looks like this:
+
+\begin{lstlisting}[language=Python]
+class Student():
+	def __init__(self, name):
+		self.name = name
+		
+student = Student('Rick')
+student.name
+'Rick'
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Explanation}
+\begin{itemize}
+\item The code has different components to it. The keyword 'class' is used to create a new class definition.
+\item The class has a name and in this case, it is "Student". We are going to create a custom Student data type.
+\item No arguments are passed to it as we are only going to create an instance of the Student data type.
+\item The \_\_init\_\_ is the initializer function in Python. Note that it is written with two trailing underscores and two leading underscores.
+\item The first argument passed to the init function is always a reference that points to the current object instance. In Python, we use "self" to represent this reference.
+\item Self is not a keyword as such. But it is good practice to use self for this purpose.
+\item The instance has one property called the name and it is initialized as seen in the code:
+self.name = name
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Explanation}
+Here is what the following code does:
+
+student = Student('Rick')
+\begin{itemize}
+\item Looks up the definition of the Student class in the current namespace.
+\item Instantiates/Creates a new object in the memory.
+\item Call's the init method (which is the initializer), passing the newly created object reference as self along with the other argument 'Rick' as the name of the student.
+\item Assigns the value of the name to the object.
+\item And it finally returns the new object.
+\item Assigns the object itself to the variable student. Now student is a reference that points to a Student object residing in the memory with the name "Rick".
+\item This new object can be used for any purpose in the program, as far as its data type and behavioral definition supports it.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Constructor and Initializer Function}
+\begin{itemize}
+\item The init method is used to initialize the object we are creating.
+\item In this example, we are initializing the  instance's name property with a value that is passed to the name argument(Rick).
+\item The self is simply a reference to that particular instance.
+\item Since, self already is a reference to the instance, it is understood that the instance has been already been created.
+\item This is done implicitly by the \_\_new\_\_ function whose implementation is hidden from us. 
+\item The new function is the Constructor function in Python. It builds/instantiates(creates) the object instance in the memory.
+\item It can be overridden in special cases.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inheritance}
+Inheritance is the way to extend an existing Class's definition to add or change some behaviors of that class without disturbing the original definition. 
+It is a very powerful feature and offers various advantages.
+\begin{itemize}
+\item  When a class is inherited from, all the properties of it are inherited without the need to copy any code.
+\item If anything is to be changed, we simply override that particular behavior.
+\item The original class is commonly called as base, parent or superclass and the inheriting class is called a derived, child or subclass.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Overriding a Method}
+A child class inherits everything from its parent class. But the methods of the Parent class can be overridden.
+All the methods including the init method can be overriden.
+\begin{lstlisting}[language=Python]
+class Faculty():
+	def __init__(self, name):
+		self.name = name
+class Doctor(Faculty):
+	def __init__(self, name):
+		self.name = 'Doctor ' + name
+class Professor(Faculty):
+	def __init__(self, name):
+		self.name = 'Professor ' + name
+
+Felicia = Doctor('Felicia')
+Warren = Professor('Warren')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Adding a Method}
+A child class could also add a method that is not there as part of the Parent's class definition.
+\begin{lstlisting}[language=Python]
+class Faculty():
+    def __init__(self, name):
+        self.name = name
+class Doctor(Faculty):
+    def __init__(self, name):
+        self.name = 'Doctor ' + name
+    def teach(self):
+        print('Can teach Graduate students.')
+class Professor(Faculty):
+    def __init__(self, name):
+        self.name = 'Professor ' + name
+    def teach(self):
+        print('Can teach Undergraduate students.')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using Super()}
+\begin{itemize}
+\item Sometimes, the child might want to do things the exact same way the Parent does. 
+\item In these cases, it is advisable that we directly invoke the property of choice of the Parent using super().
+
+\item The super() holds the definition of the Parent class.
+\begin{lstlisting}[language=Python]
+class Faculty():
+    def __init__(self, name):
+        self.name = name
+    
+class Professor(Faculty):
+    def __init__(self, name, email):
+        super().__init__(name)
+        self.email = email        
+\end{lstlisting}
+
+\item The advantage of this is that whenever the Parent class definition changes, it is automatically reflected in the child as well.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using Super()}
+\begin{itemize}
+\item Sometimes, the child might want to do things the exact same way the Parent does. 
+\item In these cases, it is advisable that we directly invoke the property of choice of the Parent using super().
+
+\item The super() holds the definition of the Parent class.
+\begin{lstlisting}[language=Python]
+class Faculty():
+    def __init__(self, name):
+        self.name = name
+    
+class Professor(Faculty):
+    def __init__(self, name, email):
+        super().__init__(name)
+        self.email = email        
+\end{lstlisting}
+
+\item The advantage of this is that whenever the Parent class definition changes, it is automatically reflected in the child as well.
+\end{itemize}
+\end{frame}
+\end{document}
