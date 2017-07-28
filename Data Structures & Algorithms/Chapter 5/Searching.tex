@@ -1,0 +1,255 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Recursion}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+\frametitle{Searching}
+Searching is the process of finding a particular item of interest among a collection of items.
+\begin{itemize}
+\item The result of the operation is True or False indicating the presence of the item.
+\item Lets consider the following example. Note that we are using a list and the membership check (using "in") here:
+\begin{lstlisting}
+15 in [3,5,2,4,1]
+False
+3 in [3,5,2,4,1]
+True
+\end{lstlisting}
+\item Though it looks simple on the outside, there is an underlying mechanism that we are interested in.
+\item We wish to compare the different techniques in terms of their implementation and performance.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Sequential Search}
+\begin{itemize}
+\item When data items are stored in a sequential manner, we say they have a linear or sequential relationship.
+\item They are arranged sequentially in relation to one another and we call this index positions.
+\item Since these indexes are ordered, it is possible for us to visit the item sequentially in search of our item.
+\item The simplest searching approach, "The Sequential Search" involves using the underlying sequential ordering to access each item.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation}
+The Python implementation of this algorithm is as follows:
+\begin{lstlisting}[language=Python]
+
+def sequential_search(input_list, item):
+    pos = 0
+    found = False
+    while pos < len(input_list) and not found:
+        if input_list[pos] == item:
+            found = True
+        else:
+            pos = pos+1
+    return found
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Analysis of Sequential Search}
+\begin{itemize}
+\item To analyze this search algorithm, we will consider the number of comparison operation done as our unit of computation.
+\item The sequential search is straightforward. There are four possible scenarios that we could think of.
+\item When the item is at the beginning of the list, the search is a O(1) operation.
+\item In the case that the item is in the end of the list or not present at all (we will need to traverse the entire list to be sure) it become a O(n) operation.
+\item In the average case, when the item is in the list somewhere else in the middle, it becomes a O(n/2) operation.
+\item In general, as the number of items increase, the coefficients become negligible, that the algorithm become O(n) which is not good.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ways to Improve Performance}
+\begin{itemize}
+\item To improve the performance of the sequential search, we could order the list.
+\item But ordering can only help so much. 
+\item In the even that the item is at the end of the list, the search is still O(n). 
+\item Ordering can only help in cases where the item is not present and the ordering gives us clues to drop the search immediately when an item larger than the item being searched for is encountered.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ways to Improve Performance}
+\begin{itemize}
+\item To improve the performance of the sequential search, we could order the list.
+\item But ordering can only help so much. 
+\item In the even that the item is at the end of the list, the search is still O(n). 
+\item Ordering can only help in cases where the item is not present and the ordering gives us clues to drop the search immediately when an item larger than the item being searched for is encountered.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Binary Search}
+Binary search is a very clever variation of ordered lists.
+\begin{itemize}
+\item The binary search starts from the middle of the list. If it is the item we are looking for, we are done.
+\item If not, we split the list into two based on the comparison between the middle item and the item we are looking for.
+\item This is repeated over and over again until we zero-in on our item.
+\item This is a great example of the divide and conquer strategy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation}
+\begin{lstlisting}[language=Python]
+def binary_search(input_list, item):
+    first = 0
+    last = len(input_list) - 1
+    found = False
+    while first <= last and not found:
+        midpoint = (first + last) // 2
+        if input_list[midpoint] == item:
+            found = True
+        elif item < input_list[midpoint]:
+                last = midpoint - 1
+        else:
+            first = midpoint + 1
+    return found
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation Using Recursion}
+The same could be implemented using recursion as follows:
+\begin{lstlisting}[language=Python]
+def rbs(input_list, item):
+    if len(input_list) == 0:
+        return False
+    else:
+        mp = len(input_list) // 2
+        if input_list[mp] == item:
+            return True
+        elif item < input_list[mp]:
+            return rbs(input_list[:mp], item)
+        else:
+            return rbs(input_list[mp + 1:], item)
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Analysis of The Binary Search}
+\begin{itemize}
+\item In Binary search, with each midpoint comparison, we eliminate half of the list and that saves a lot of computational requirements.
+\item In mathematical terms, If we start with n items, about n/2 items will be left after the first comparison. After the second comparison, there will be about n/4 left. Then n/8, n/16 , and so on.
+\item When we split the list to the absolute minimum, that is down to one item (which is the worst case here), we either end up finding the item or not.
+\item The number of comparisons required to get to this point is "i" where n/2**i = 1. Solving for i gives us i = log n.
+\item The maximum number of comparisons is logarithmic with respect to the number of items in the list. Therefore, the binary search is O(log n).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hashing}
+Hashing is an improvement over the search philosophy based on knowing the relative positioning of the items through the index positions.
+\begin{itemize}
+\item In Hashing, we attempt to achieve search in O(1) time.
+\item In order to achieve this, it is imperative that we know the location of each unique item.
+\item A hash table is a collection of items which are stored in such a way as to make it easy to find them later.
+\item Each position in a hash table is called a slot.
+\item The mapping between the items and the slots is called the hash function.
+\item The hash function takes an item and returns an integer in the range of the slot names (which are numbers). There are many different types of hash functions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Remainder Method}
+\begin{itemize}
+\item The remainder method take an item and divides it by the table size and uses the remainder as the hash value.
+\item Once the hash values are calculated, the items are inserted into the hash table at the designated position.
+\item Now, when we want to search for an item, we compute the hash function, determine the slot and finally check the slot to see if the item is present there.
+\item This operation is O(1).
+\item Since a constant time is required to compute the hash value and then index the hash table for the item, it is a constant time search algorithm.
+\item The problem with this algorithm is that the same values and items that hash out to the same hash values will create a collision problem.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Perfect Hash Function}
+\begin{itemize}
+\item Given a collection of items, a hash function that maps each item into a unique slot is referred to as a perfect hash function. But this is an ideal situation.
+\item Unfortunately, for an arbitrary set of items, there is no systematic way to construct a perfect hash function.
+\item We need a hash function that minimizes the number of collisions, is easy to compute,
+and evenly distributes the items in the hash table.
+\item Two methods that are commonly used for constructing hash functions.
+\begin{itemize}
+\item Folding method.
+\item Mid-square method.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Folding Method}
+\begin{itemize}
+\item In this method, the item is split into equal-sized pieces(the last piece may not be of the same size).
+\item The pieces are then added together to give the resulting hash function.
+\item For example, it it is a phone number 210-564-1241. We would divide the number into pieces of 2 numbers each as follows:
+(21,05,64,12,41)
+\item We would later add them up as 21+05+64+12+41 = 143.
+\item If the size of the hash table is less than that, we would need to perform another operation.
+\item Imagining our hash table has only 11 slots, we would divide the sum by 11 to find the remainder as 143%11 which results in 0.
+\item Hence, the item gets stored in the slot named '0'.
+\item In some folding methods, we might also reverse the pieces before adding them all together.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mid-square Method}
+\begin{itemize}
+\item In this method, we square the item and extract a portion of it.
+\item For example, if our  item was the number 47, we would square it which results in 2209.
+\item By extracting the two middle digits, 20, and performing the remainder step 20%11 = 9, we get the slot 9 for the number 47.
+\item We can also create hash functions for strings by considering strings as a sequence of characters and considering the ascii equivalent of the characters.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Collision Resolution}
+Collision resolution is the systematic  way of placing the second item that has the same hash value as another item in the hash table. 
+\begin{itemize}
+\item There are two approaches to do it. One method is to push the second colliding item to the next open slot that is available in the table.
+\item This technique is called open addressing. It is done by what is commonly referred to as "linear probing".
+\item Once, a hash table is constructed using linear probing, the same methods should be used for searching as well.
+\item The disadvantage of linear probing is the tendency for clustering. If a lot of collisions occur, a large number of surrounding slots will be filled by linear probing resolution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Collision Resolution Continued}
+\begin{itemize}
+\item Another solution to this is to use "Quadratic Probing".
+\item In this technique, instead of going to the next open slot, we skip slots (by a definite uniform count) sequentially, thereby distributing the items that caused collisions more evenly.
+\item The usual norm is "plus 3" probing. It is important such that the skip must be such that all the slots will be visited.
+\item Otherwise, part of the table will be unused. To ensure that, we choose the size of the table to be a prime number.
+\item Another alternative is to use "Chaining" where a single slot could hold references to multiple items that all hashed out to that slot number.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Map Abstract Data Type}
+\end{frame}
+\end{document}

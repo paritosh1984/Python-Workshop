@@ -169,24 +169,57 @@ class Professor(Faculty):
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Using Super()}
+\frametitle{Types of Methods in Classes}
 \begin{itemize}
-\item Sometimes, the child might want to do things the exact same way the Parent does. 
-\item In these cases, it is advisable that we directly invoke the property of choice of the Parent using super().
+\item There are three types of methods in classes.
+\begin{itemize}
+\item Class methods,
+\item Instance methods and 
+\item Static methods.
+\end{itemize}
+\item Some attributes and methods are part of the class itself and some are only part of the object instances of the class.
+\item The way to differentiate them is by using the "self" argument. When we encounter a self argument in the methods within the class, we can conclude that they are instance methods.
+\item The first argument to an instance method is always self, and whenever these instance methods are called (with the objects using dot notation method of calling), the object itself is passed to the method.
+\item Instance method only affect the object instance calling them. Whereas, a class method affects the entire class. Any change made to the class affects all the objects.
+\end{itemize}
+\end{frame}
 
-\item The super() holds the definition of the Parent class.
-\begin{lstlisting}[language=Python]
-class Faculty():
-    def __init__(self, name):
-        self.name = name
-    
-class Professor(Faculty):
-    def __init__(self, name, email):
-        super().__init__(name)
-        self.email = email        
+\begin{frame}[fragile]
+\frametitle{Types of Methods in Classes}
+\begin{itemize}
+\item A @classmethod decorator indicates a class method.Here, the first parameter to the method is the class itself.
+\item Like how "self" is used for object instances, we use "cls" as a reference to the class object.
+\begin{lstlisting}
+class Car():
+	count = 0
+	def __init__(self):
+		Car.count += 1
+	@classmethod
+	def car_counter(cls):
+		print("Car has ",cls.count, 
+		" cars")       
 \end{lstlisting}
+\item Instead of cls.count, we could very well use "Car.count" as well.
+\item The car\_counter() method can be accessed by each object of the class as well.
+\end{itemize}
+\end{frame}
 
-\item The advantage of this is that whenever the Parent class definition changes, it is automatically reflected in the child as well.
+\begin{frame}[fragile]
+\frametitle{Types of Methods in Classes - Static Methods}
+\begin{itemize}
+\item A third type of method is the static  method. It neither affects the class nor the objects.
+\item Its defined with a @staticmethod decorator with no initial self or cls parameter.
+\begin{lstlisting}
+class Car():
+	@staticmethod
+	def promo():
+		print('All these cars are for 
+		sale!!)
+Car.promo()
+All these cars are for sale!!
+\end{lstlisting}
+\item Notice that we did not have to create objects of the class to access this method.
+\item Static methods do not have access to instance attributes or class attributes.
 \end{itemize}
 \end{frame}
 \end{document}
