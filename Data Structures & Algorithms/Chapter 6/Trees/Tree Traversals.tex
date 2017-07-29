@@ -1,0 +1,81 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Tree Traversals}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Introduction}
+With a solid understanding of trees and advantages of tree data structures, we can look at tree traversals.
+\begin{itemize}
+\item There are three commonly used patterns to visit all the nodes in a tree.
+\item They differ by the order in which the nodes are visited.
+\item The three traversals we will look at
+are called preorder, inorder, and postorder.
+\item Preorder - In a preorder traversal, we visit the root node first, then recursively do a preorder traversal of the left subtree, followed by a recursive preorder traversal of the right subtree.
+\item Inorder - In an inorder traversal, we recursively do an inorder traversal on the left subtree, visit the root node, and finally do a recursive inorder traversal of the right subtree.
+\item Postorder - In a postorder traversal, we recursively do a postorder traversal of the left subtree and the right subtree followed by a visit to the root node.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Preorder Traversal}
+We could have an external method as follows:
+\begin{lstlisting}[language=Python]
+def preorder(tree):
+    if tree:
+        print(tree.get_root_val())
+        preorder(tree.get_left_child())
+        preorder(tree.get_right_child())
+\end{lstlisting}
+
+An internal method could be implemented as follows:
+\begin{lstlisting}[language=Python]
+def preorder(self):
+    print(self.key)
+    if self.left_child:
+        self.left.preorder()
+    if self.right_child:
+        self.right.preorder()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Preorder and Inorder Traversal}
+The algorithm for the postorder traversal is nearly identical to preorder except that we move the call to print to the end of the function.
+\begin{lstlisting}[language=Python]
+def preorder(tree):
+    if tree:
+        print(tree.get_root_val())
+        preorder(tree.get_left_child())
+        preorder(tree.get_right_child())
+\end{lstlisting}
+
+In the inorder traversal we visit the left subtree, followed by the root, and finally the right subtree.
+\begin{lstlisting}[language=Python]
+def inorder(tree):
+    if tree != None:
+        inorder(tree.get_left_child())
+        print(tree.get_root_val())
+        inorder(tree.get_right_child())
+\end{lstlisting}
+\end{frame}
+\end{document}
