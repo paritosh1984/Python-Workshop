@@ -1,0 +1,80 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Insertion Sort}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+\item The insertion sort has  a different way of working although it still only offers O(n-squared).
+\item It maintains a sorted sublist in the lower positions of the list.
+\item Each new item is then inserted back into this sublist such that the sorted sublist grows by one item at a time.
+\item In the beginning, we start with a list of one item at position 0, which is already sorted.
+\item Every pass, through items from position 1 through n-1, compares the current item against those in the sorted sublist.
+\item The items that are greater are shifted to the right.
+\item When an item that is smaller than the current item is encountered, it can be inserted.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{How does it work?}
+\begin{itemize}
+\item Imagine a list [12,24,43,45,64,81] which as we can see is already sorted. This  is the sorted sublist that we have.
+\item Lets say we want to insert 44 into this list.
+\item The current item 44 will be compared against each item of the sorted sublist.
+\item Initially, 81 will be moved to the right as it is larger than 44. 
+\item The same happens with 45 and 64.
+\item When it encounters 44, which is smaller than 45, it performs an insertion.
+\item Animation - http://www.cs.armstrong.edu/liang/animation/web/InsertionSort.html
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contd}
+\begin{itemize}
+\item There are n-1 passes to be made for a list of n items again.
+\item The iterations starts at 1 and moves through position n-1. Note that position 0 is already sorted when we start.
+\item The maximum number of comparisons for an insertion sort is the sum of the first n-1 integers.
+\item Again, this is O(n-squared).
+\item It is well worth noticing that here, we are shifting instead of exchanging. 
+\item In general, shifting requires only a third of the processing power required for exchanging since only one assignment is performed. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation}
+\begin{lstlisting}[language=Python]
+def insertion_sort(a_list):
+    for index in range(1, len(a_list)):
+        current_value = a_list[index]
+        position = index
+        while position > 0 and 
+        a_list[position - 1] > current_value:
+            a_list[position] = a_list[position - 1]
+            position = position - 1
+        a_list[position] = current_value
+\end{lstlisting}
+Notice that we are not swapping the items but simply assigning them to the target position.
+\end{frame}
+\end{document}

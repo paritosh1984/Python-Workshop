@@ -1,0 +1,78 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Bubble Sort}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Bubble Sort}
+\begin{itemize}
+\item Bubble sort is based on comparison of adjacent items in a list that swaps the items to place them in the proper order.
+\item It is done through multiple passes, because an item is swapped only to the next position in the list based on the result of the comparison operation (and not all the way to the end).
+\item Each pass, achieves placing the next largest item in the list at its proper position.
+\item In the first pass, in a list of n items, there are n-1 pairs of items to process.
+\item In the second pass, since the largest number has already been placed in its proper  position, we are left with n-1 items and n-2 pairs of items. This is how it progresses.
+\item Animation available at http://www.cs.armstrong.edu/liang/animation/web/BubbleSort.html
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation}
+\begin{lstlisting}[language=Python]
+def bubble_sort(a_list):
+    for passes in range(len(a_list) - 1, 0, -1):
+        for i in range(passes):
+            if a_list[i] > a_list[i + 1]:
+                a_list[i],a_list[i + 1] =
+                 a_list[i + 1],a_list[i]
+    return(a_list)
+a = [1,2,3,4,6,345,25,6,25,5,6,72,61,6,262]
+bubble_sort(a)
+[1, 2, 3, 4, 5, 6, 6, 6, 6, 25, 25, 61, 72, 262, 345]
+\end{lstlisting}
+Notice that we used the simple two-variable swap that Python offers to swap the list items here.
+\end{frame}
+
+\begin{frame}
+\frametitle{Explanation}
+\begin{itemize}
+\item The number of passes is decided by the for loop that runs on a negative-stepping range.
+\item The first pass is based on the full length of the list.
+\item After the first pass, the number of items in the list on which the sorting has to operate keeps decreasing.
+\item In every pass, the adjacent items are compared against each other and are swapped based on the result.
+\item Items that have the same value are not swapped and they appear together in the end result.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis of Bubble Sort}
+\begin{itemize}
+\item Regardless of the arrangement of the items  in the list initially, n-1 passes will be needed to sort the list of size n.
+\item The total number of comparisons is the sum of first n-1 integers. 
+\item Using the formula for the sum of first n integers, we find that the sum of n-1 integers equals 1/2n-squared - 1/2(n-n) which is n-squared/2 + n/2. 
+\item This is O(n-squared) comparisons.
+\item In the best case, the list is already sorted. But in the worst case, every comparison will result in a swap. 
+\item Bubble sort is the most inefficient way to sort a collection of items.
+\end{itemize}
+\end{frame}
+
+\end{document}

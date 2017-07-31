@@ -1,0 +1,128 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Merge Sort}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}
+\frametitle{Introduction}
+The merge sort is based on the divide and conquer methodology.
+\begin{itemize}
+\item It is a recursive algorithm that continually splits a list in halves.
+\item The list is split repeatedly till we end up with lists of one element each which are inherently sorted.
+\item Once this process is completed, we merge the sorted lists, combining them together into a bigger sorted list.
+\item The base case in this recursion is of course a list of size 1.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Implementation}
+By performing the sublist segmentation, we have reduced the total number of shifting operations to sort the list.
+\begin{lstlisting}[language=Python]
+def merge_sort(input_list):
+    if len(input_list)>1:
+        mid = len(input_list)//2
+        left_half = input_list[:mid]
+        right_half = input_list[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i=0
+        j=0
+        k=0
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Continued}
+\begin{lstlisting}[language=Python]
+while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                input_list[k]=left_half[i]
+                i=i+1
+            else:
+                input_list[k]=right_half[j]
+                j=j+1
+            k=k+1
+
+while i < len(left_half):
+            print('First')
+            input_list[k]=left_half[i]
+            print(input_list[k])
+            i=i+1
+            k=k+1
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Continued}
+\begin{lstlisting}[language=Python]
+while j < len(right_half):
+            print('Second')
+            input_list[k]=right_half[j]
+            print(input_list[k])
+            j=j+1
+            k=k+1
+a =  [5,1,66,35,72,26,6,7,267,25,24,46,25,54]
+merge_sort(a)
+[1, 5, 6, 7, 24, 25, 25, 26, 35, 46, 54, 66, 72, 267]
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Explanation}
+\begin{itemize}
+\item The list is repeatedly split into smaller lists that eventually results in lists of one element each.
+\item Lets call them parent and child lists just for the purpose of understanding.
+\item The variables  i and j point to the 0th position of the child lists and k = 0 points to position 0 of the parent.
+\item Consider a list of 8 elements that is initially split into lists of 4 elements each and later into list of 2 elements and then into 1 at the end.
+\item In this case, the left child of size 1 is compared against the right child of size 1 and based on the result, the smaller of the two overwrites the 0th position in its parent list of size 2.
+\item Following that 'k' is incremented by 1, so that it is pointing to position 1 of the parent list.
+\item This logic is taken care of by the first while loop
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Explanation}
+\begin{itemize}
+\item The other two while loops are in place to handle the situation where there are elements leftover in either of the child lists that cannot be compared against any element of its sibling.
+\item This happens when the left child has its element(s) pushed to the parent list and only the right child alone has elements left to be sorted.
+\item In this case, the third while  loop is called. If the left child has leftover element(s) in the left child, the second while  will be called.
+\item The lists are then merged together progressively and the final sorted list is arrived at. The merge operation places the items back into the original list.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis of Merge Sort}
+\begin{itemize}
+\item To analyze merge sort's performance, we need to consider both halves of its implementation, the splitting and merging.
+\item From Binary search, we know that we can split a list in half 'log n' times where n is the size of the  list.
+\item The next operation is the merge. Each item in the list is processed and eventually placed on the sorted list. 
+\item Hence, the merge operation requires n operations.
+\item Hence, combining log n splits, each of which costs n results in a total of n log n operations.
+\item A merge sort is therefore O(n log n) algorithm. 
+\item A critical drawback of merge sort is that it needs extra space to hold all the split lists and this may become too resource intensive for very large lists.
+\end{itemize}
+\end{frame}
+\end{document}
