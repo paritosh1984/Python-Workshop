@@ -72,6 +72,42 @@ In order to implement the ordered list, we must keep a couple of things in
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{The Add operation}
+The add method differs very much from the add method in the Unordered list.
+
+\begin{itemize}
+\item Using Link traversal, we must traverse the list to find out where the item could be inserted depending on the order.
+
+\item For example, in our list containing the following elements [17,23,45,68,78,79,90], if we have to add 75, the method should know that it goes in between 68 and 78.
+
+\item It is therefore helpful to go with an additional reference along with the current reference as seen in previous exercises. 
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Python]
+
+def add(self, item):
+	current = self.head
+	tail = None
+	stop = False
+	while current != None and not stop:
+ 		if current.get_data() > item:
+ 			stop = True
+ 		else:
+			tail = current
+			current = current.get_next()
+
+	temp = Node(item)
+	if tail == None:
+		temp.set_next(self.head)
+		self.head = temp
+	else:
+		temp.set_next(current)
+		tail.set_next(temp)
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}
 \frametitle{Search Operation}
@@ -111,41 +147,14 @@ def search(self, item):
 \end{lstlisting}
 \end{frame}
 
+
 \begin{frame}
-\frametitle{The Add operation}
-The add method differs very much from the add method in the Unordered list.
-
+\frametitle{Summary}
 \begin{itemize}
-\item Using Link traversal, we must traverse the list to find out where the item could be inserted depending on the order.
-
-\item For example, in our list containing the following elements [17,23,45,68,78,79,90], if we have to add 75, the method should know that it goes in between 68 and 78.
-
-\item It is therefore helpful to go with an additional reference along with the current reference as seen in previous exercises. 
-
+\item Ordered lists are more or less similar to unordered lists except a few key operations like add and search due to the unique underlying structure.
+\item Ordered lists offer significant improvements in search over the unordered counterparts because the items are ordered and mostly the average case performance is significantly higher.
+\item Most operations are similar  in implementation and performance to the unordered lists.
 \end{itemize}
-\end{frame}
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Python]
-
-def add(self, item):
-	current = self.head
-	tail = None
-	stop = False
-	while current != None and not stop:
- 		if current.get_data() > item:
- 			stop = True
- 		else:
-			tail = current
-			current = current.get_next()
-
-	temp = Node(item)
-	if tail == None:
-		temp.set_next(self.head)
-		self.head = temp
-	else:
-		temp.set_next(current)
-		tail.set_next(temp)
-\end{lstlisting}
 \end{frame}
 \end{document}
 
