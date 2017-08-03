@@ -31,7 +31,7 @@ Tampa, Florida}
 \item A priority queue acts like a queue, except that the dequeueing happens from the front of the queue.
 \item The logical ordering of items insider a priority queue is also determined by their priority.
 \item The classic way to implement a priority queue is by using a data structure called a binary heap.
-\item The binary heap is implemented with a single as an internal representation and has two variations, the "min heap" and the "max heap".
+\item The binary heap is implemented with a single list as an internal representation and has two variations, the "min heap" and the "max heap".
 \item In the min heap, the smallest key is at the front and its the opposite in the max key.
 \end{itemize}
 \end{frame}
@@ -182,5 +182,14 @@ def del_min(self):
     self.percolate_down(1)
     return ret_val
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Binary Heaps is an important tree data  structure wherein the properties of a queue and a tree are combined together.
+\item The properties of a binary heap dictates that the structure property and the order property have to be maintained to get the best performance from the data structure.
+\item It could be implemented using a single list.
+\end{itemize}
 \end{frame}
 \end{document}
