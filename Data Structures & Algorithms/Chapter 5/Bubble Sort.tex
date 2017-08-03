@@ -68,11 +68,21 @@ Notice that we used the simple two-variable swap that Python offers to swap the 
 \begin{itemize}
 \item Regardless of the arrangement of the items  in the list initially, n-1 passes will be needed to sort the list of size n.
 \item The total number of comparisons is the sum of first n-1 integers. 
-\item Using the formula for the sum of first n integers, we find that the sum of n-1 integers equals 1/2n-squared - 1/2(n-n) which is n-squared/2 + n/2. 
-\item This is O(n-squared) comparisons.
+\item Using the formula for the sum of first n integers, we find that the sum of n-1 integers equals 1/2$n^2$ - 1/2(n-n) which is $n^2$/2 + n/2. 
+\item This is O($n^2$) comparisons.
 \item In the best case, the list is already sorted. But in the worst case, every comparison will result in a swap. 
 \item Bubble sort is the most inefficient way to sort a collection of items.
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Bubble sort is one of the most fundamental sorting algorithms in Computer Science.
+\item It sorts items through repeated passes, sorting one element at a time.
+\item It offers good performance for smaller problems but as the number of items  go up, the performance goes down.
+\item It is evident from the fact that it's Big-O Notation is O($n^2$).
+\item But it is the most basic and easy to use and understand algorithm as it is very straightforward in its working.
+\end{itemize}
+\end{frame}
 \end{document}
