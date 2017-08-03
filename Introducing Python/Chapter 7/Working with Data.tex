@@ -1,0 +1,188 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Working With Data}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+\item In Programming, we deal with data day in, day out.
+\item Most of them concern the built-in Python Data Types, strings and bytes \& bytearrays.
+\item Text strings is the most familiar and commonly used data in programming.
+\item In Python 3, Strings are Unicode strings and not byte arrays. 
+\item In Python 2, the language had the in-built ability to differentiate between normal byte strings and Unicode character strings.
+
+\end{itemize}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Unicode and ASCII}
+\begin{itemize}
+\item ASCII was defined in the 1960s and only used 7 bits.
+\item Remember that the basic unit of storage in computers is bytes which is 8 bits each.
+\item With 8 bits in a byte, we could represent 256 unique values.
+\item But since ASCII uses only 7 bits, the range came down to 128 unique values.
+\item Naturally, ASCII could represent only a limited set of characters that includes the 26 upper case and lower case letters, the 10 digits and special characters and non-printing control codes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Unicode and ASCII}
+\begin{itemize}
+\item Due to the mass-adoption of computing technology and the growing demand for language support and need for special symbols, ASCII has since become very obsolete.
+\item The Unicode is an ongoing international standard to define the characters of all the world’s languages, plus symbols from mathematics and other fields.
+\end{itemize}
+According to the Unicode consortium -
+
+"Unicode provides a unique number for every character, no matter what the platform, no
+matter what the program, no matter what the language."
+\end{frame}
+
+\begin{frame}
+\frametitle{The Unicode Standard}
+\begin{itemize}
+\item The latest version of Unicode Standard (6.2) defines over 110,000 characters, each with a unique name and identification number. 
+\item The characters are divided into eight-bit sets called planes. The first 256 planes are the basic multilingual planes.
+\item In Python 3, a \symbol{92}u followed by four hex numbers specifies a character in one of Unicode's 256 multilingual planes.
+\item The first 2 numbers represents the plane's number (in the range 00 to FF) and the next 2 numbers represent the index of the character within the plane.
+\item Note that plane 00 is ASCII.
+\item For characters in the higher planes, we need more bits. The Python escape sequence for these is \symbol{92}U followed by eight hex characters; the leftmost ones need to be 0.
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Unicode Standard}
+\begin{itemize}
+\item The Python unicodedata module has functions that translate in both directions:
+\item lookup() takes a case-insensitive name and returns a Unicode character.
+\item name() returns an uppercase name for a unicode character.
+\item Rest of the coding exercise is available at -- 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{String Formatting}
+\begin{itemize}
+\item Python has two ways of formatting strings, loosely called old style and new style. 
+\item Both styles are supported in Python 2 and 3 (new style in Python 2.6 and up).
+\item The old style of string formatting has the form string % data.
+\item The following are the conversion types  in the old style.
+\begin{itemize}
+\item \%s string
+\item \%d decimal integer
+\item \%x hex integer
+\item \%o octal integer
+\item \%f decimal float
+\item \%e exponential float
+\item \%g decimal or exponential float
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Code Examples}
+Using the Conversion types, we could represent the built-in data types in different ways.
+\begin{lstlisting}[language=Python]
+To represent an integer:
+'%s' % 42 # as string
+'42'
+'%d' % 42 # as decimal
+'42'
+'%x' % 42 # as hexadecimal
+'2a'
+'%o' % 42 # as octal
+'52'
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Code Examples}
+Floating point numbers can be represented using the conversion types as follows.
+\begin{lstlisting}[language=Python]
+'%s' % 7.03 # as string
+'7.03'
+'%f' % 7.03 # as float
+'7.030000'	
+'%e' % 7.03 # as exponential float
+'7.030000e+00'
+'%g' % 7.03 # as decimal or exponential float
+'7.03'
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{String Representations}
+We use plenty of string formatting in our print statements. Here is a simple example of how it is done.
+\begin{lstlisting}[language=Python]
+days = 4
+language = 'Python'
+print('We are here to learn %s for %d days!'
+%(language,days))
+We are here to learn Python for 4 days!
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{New Style Formatting}
+Old style formatting is still supported by Python 2. But since we are going to be using Python 3, we will adopt the new style.
+
+
+An example of the new style formatting on the same print statement looks like this.
+\begin{lstlisting}[language=Python]
+
+days = 4
+language = 'Python'
+print('We are here to learn {} for {} days!'
+.format(language,days))
+We are here to learn Python for 4 days!
+\end{lstlisting}
+More coding examoles at link
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Regular Expressions}
+Regular expressions are used for complex pattern matching.
+\begin{itemize}
+\item Regular expressions are patterns used to match character combinations in strings.
+\item It is a particular kind of formal grammar used to parse strings and other textual information that are known as "Regular Languages" in formal language theory.
+\item It is common to all programming languages and is available in Python through the re (short for regular expression) module.
+\end{itemize}
+\begin{lstlisting}[language=Python]
+	import re
+	result = re.match('on', 'Pythonic code')
+\end{lstlisting}
+More coding examples at - link
+\end{frame}
+\end{document}
+
