@@ -226,7 +226,7 @@ T(n) = 4 + 3$n^2$ + 2n + 1
 \frametitle{Anagram Detection Example}
 Lets discuss Big-O Notation further with the Anagram example.
 \begin{itemize}
-\item One string is an anagram of another if the second is simply a rearrangement of of the first.
+\item One string is an anagram of another if the second is simply a rearrangement of the first.
 \item For example, earth is a rearrangement of heart. Likewise "Mother in law" is an anagram of "Hitler woman".
 \item If the two strings are of  the same length and are made up of a combination of the 26 alphabets, we could easily analyze them.
 \item Lets discuss two solutions to identifying an anagram and analyze their performances.
@@ -241,7 +241,7 @@ Lets discuss Big-O Notation further with the Anagram example.
 \begin{itemize}
 \item At first glance you we see straightforward assignments and hence we might be tempted to think this O(n).
 \item But the calls to the sort method comes with a price.
-\item We will see in later exercises that the sort methods are either O(nlog n) or O($b^2$).
+\item We will see in later exercises that the sort methods are either O(nlog n) or O($n^2$).
 \item And for larger n values, the sorting operation will dominate the performance.
 \item Therefore, this algorithm will have the same order of magnitude as that of the sorting process.
 \end{itemize}
@@ -277,7 +277,7 @@ are nested.
 \item We learned the importance of algorithm analysis in computer science.
 \item We learned the use of Big-O Notation to represent the computational effort that goes behind running an algorithm programmatically.
 \item We learned how different algorithms could be compared against each other using the Big-O Notation.
-\item We have understood how to make choices when we are presented with a dilemma of choosing between space requirements and execution time requirements.
+\item We have understood how to make choices when we are presented with a dilemma of choosing betw	een space requirements and execution time requirements.
 \end{itemize}
 \end{frame}
 \end{document}
