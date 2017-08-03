@@ -25,7 +25,7 @@ Tampa, Florida}
 \begin{frame}
 \frametitle{Introduction}
 \begin{itemize}
-\item The insertion sort has  a different way of working although it still only offers O(n-squared).
+\item The insertion sort has  a different way of working although it still only offers O($n^2$).
 \item It maintains a sorted sublist in the lower positions of the list.
 \item Each new item is then inserted back into this sublist such that the sorted sublist grows by one item at a time.
 \item In the beginning, we start with a list of one item at position 0, which is already sorted.
@@ -56,7 +56,7 @@ Tampa, Florida}
 \item There are n-1 passes to be made for a list of n items again.
 \item The iterations starts at 1 and moves through position n-1. Note that position 0 is already sorted when we start.
 \item The maximum number of comparisons for an insertion sort is the sum of the first n-1 integers.
-\item Again, this is O(n-squared).
+\item Again, this is O($n^2$).
 \item It is well worth noticing that here, we are shifting instead of exchanging. 
 \item In general, shifting requires only a third of the processing power required for exchanging since only one assignment is performed. 
 \end{itemize}
@@ -76,5 +76,14 @@ def insertion_sort(a_list):
         a_list[position] = current_value
 \end{lstlisting}
 Notice that we are not swapping the items but simply assigning them to the target position.
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Insertion Sort has a different approach towards sorting as compared to Bubble sort.
+\item There is no significant performance gain as it still depends on passes and insertion of item into a sorted sublist.
+\item Thereby it still offers only O($n^2$).
+\end{itemize}
 \end{frame}
 \end{document}
