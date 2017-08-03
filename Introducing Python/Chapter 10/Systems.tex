@@ -1,0 +1,88 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Working With Files and Directories}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Introduction to Files and Directories}
+\begin{itemize}
+\item We usually work with file and directories when we work on computers.
+\item Our data is stored in the form of files in directories.
+\item Often, we will need to create files in our programs to store our output data for later use.
+\item Programs can be written also to modify the data stored in a file.
+\item In this module, we will see how to work with files and folders in Python.
+\item Python's file operations are modeled after the Unix System and is available through the OS module.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Common File Operations}
+We can create a file by simply using the open method. If the file specified doesn't already exist, it will be created.
+\begin{lstlisting}[language=Python]
+import os
+fout = open('my_file.txt', 'wt')
+fout.close()
+# Check if the file has been created with exists()
+os.path.exists('my_file.txt')
+True
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Common File Operations}
+We can check if the given path is a file or a directory by using the isfile() and isdir() methods.
+\begin{lstlisting}[language=Python]
+name = 'my_file.txt'
+os.path.isfile(name)
+True
+
+# to check if its a directory
+os.path.isdir(name)
+False
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Common File Operations}
+Some of the other commonly used file  operations are:
+\begin{lstlisting}[language=Python]
+# Get the current working directory
+os.getcwd()
+# Get all the files in the current workind direcorry
+os.listdir()
+# Rename a file
+os.rename('old_file_name', 'new_file_name')
+\end{lstlisting}
+
+More coding examples at - link
+\end{frame}
+
+\begin{frame}
+\frametitle{Calendar and Date}
+\end{frame}
+\end{document}
+
