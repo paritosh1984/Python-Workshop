@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Binary Search Tree}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+ 
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Introduction}
+A binary search tree is an important variation of binary trees.
+\begin{itemize}
+\item It relies on the property that keys that are less than the parent are found in the left subtree, and keys that are greater than the parent are found in the right subtree. 
+\item We will call this the bst property.
+\item The property holds for each parent and child. 
+\item All of the keys in the left subtree are less than the key in the root. All of the keys in the right subtree are greater than the root.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Essential Operations in BST}
+\begin{itemize}
+\item Ability to create new empty map.
+\item Ability to Add a new key-value pair to the map. If the key is already in the map then replace the old value with the new value.
+\item Get the the value stored in the map for a given key or return None otherwise.
+\item Ability to delete a key-value pair from the map using a statement of the form del map[key].
+\item Get the size of the map.
+\item Ability to search for a key in the map.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Implementation in Python}
+For the implementation we will use the same class-oriented structure we used for linked lists, using a class for Tree Node and another for the Tree itself.
+\begin{lstlisting}[language=Python]
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+        self.size = 0
+    def length(self):
+        return self.size
+    def __len__(self):
+        return self.size
+    def __iter__(self):
+        return self.root.__iter__()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Binary Search Tree is an important variation of binary trees that has a great deal of importance in Computer science.
+\item The keys in the left sub-tree have a value less than the root key and the keys in the right sub-tree have greater values.
+\item Maps are based on the Binary search tree data structure.
+\end{itemize}
+\end{frame}
+\end{document}
