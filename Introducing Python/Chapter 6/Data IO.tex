@@ -62,11 +62,10 @@ The second letter of mode is the file’s type:
 \frametitle{Writing a Flat file}
 \begin{lstlisting}
 
-review = 'I have a few leave Bluetooth and I'm
- gonna say this really brings the BOOM.
- My music is bumping the colors are amazing
- and it also plays FM radio how amazing is
- that?!'
+review = "I have a few leave Bluetooth and \
+I'm gonna say this really brings the BOOM.\
+My music is bumping the colors are amazing \
+and it also plays FM radio how amazing is that?!"
 
 review_file = open('review','wt')
 review_file.write(review)
@@ -197,5 +196,15 @@ Lets use seek to read some particular byte:
 	fin = open('review', 'rt')
 	fin.tell()
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item We learned how flat files can be used to create and store quick data.
+\item We learned how to perform different file operations such as read, write and use of iterators to read and write data.
+\item We learned the use of 'with' for automatically close files that may accidentally be left open.
+\item We learned how to prevent overwriting of critical data using exception mechanism.
+\end{itemize}
 \end{frame}
 \end{document}
