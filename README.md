@@ -13,19 +13,19 @@ Masters in BAIS,
 ISDS, MUMA College of Business.
 
 ## Schedule
-Day 1 - 
+### Day #1 - 
   Session 1 - Introduction to Python, Data Types and Hands-on Exercises
   Session 2 - Object-oriented Programming
  
-Day 2 -
+### Day #2 -
   Session 1 - Modules and Packages & Working with Files and Data.
   Session 2 - Introduction to Numpy and Pandas
 
-Day 3 - 
+### Day #3 - 
   Session 1 - Data Visualization using Matplotlib
   Session 2 - Introduction to Data Structures and Algrorithm Analysis.
  
-Day 4 -
+### Day #4 -
   Session 1 - Discussion on Abstract Data Structures, Searching and Sorting
   Session 2 - Trees Data Structures
 
