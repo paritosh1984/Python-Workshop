@@ -117,13 +117,14 @@ for item in itertools.accumulate([1, 2, 3, 4]):
     print(item)
 \end{lstlisting}
 
-If a function is passed as the second argument to accumulate(), instead of the default addition operation, that particular function will be performed.
+If a function is passed as the second argument to accumulate(), it will supersede the default addition operation.
 \begin{lstlisting}[language=Python]
 def multiply(a, b):
     return a * b
     
 import itertools
-for item in itertools.accumulate([1, 2, 3, 4], multiply):
+for item in itertools.accumulate([1, 2, 3, 4],
+multiply):
     print(item)
 \end{lstlisting}
 The function should take two arguments and return a single result.
@@ -133,7 +134,8 @@ The function should take two arguments and return a single result.
 \frametitle{Print Pretty Statements with pprint()}
 pprint pretty prints data for us.
 \begin{lstlisting}[language=Python]
-data = [ (i, { 'a':'A','b':'B','c':'C','d':'D','e':'E'})
+data = [ (i, { 'a':'A','b':'B','c':'C',
+'d':'D','e':'E'})
          for i in range(3)
          ]
 from pprint import pprint
@@ -142,5 +144,14 @@ from pprint import pprint
 print(data)
 pprint(data)
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item We learned how Python pushed all the custom, advanced functionalities into its Standard library so that the language would not become too bloated.
+\item We learned how to use different tools such as Counter, Deque, itertools and pprint to make our code deliver more.
+\item We learned how to import these modules into our code as and when we need, even selectively, rather than importing the entire package.
+\end{itemize}
 \end{frame}
 \end{document}
