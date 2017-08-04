@@ -4,11 +4,11 @@
 
 ## Instructors
 
-Vivek Singh,
+#### Vivek Singh,
 Doctoral Student,
 ISDS, MUMA College of Business.
 
-Deepak George,
+#### Deepak George,
 Masters in BAIS,
 ISDS, MUMA College of Business.
 
