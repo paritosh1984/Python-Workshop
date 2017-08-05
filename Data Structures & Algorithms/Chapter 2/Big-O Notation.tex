@@ -102,7 +102,7 @@ def sum_of_n(n):
 \begin{frame}[fragile]
 \frametitle{Execution Time Example}
 Lets run the program and see how it performs.
-\begin{lstlisting}[language=python, showstringspaces=false]
+\begin{lstlisting}
 for i in range(5):
     print("Sum is %d required %10.7f seconds"
      % sum_of_n(10000))
@@ -124,17 +124,23 @@ The results are fairly consistent for the first 10000 integers.
 \begin{frame}[fragile]
 \frametitle{Execution Time Example}
 Lets compute the sum of the first 1000000 integers using the same program and see how that performs.
-\begin{lstlisting}[language=python, showspaces=false]
+\begin{lstlisting}
 for i in range(5):
     print("Sum is %d required %10.7f seconds"
      %sum_of_n_2(1000000))
 
-Sum is 500000500000 required  0.0782065 seconds
-Sum is 500000500000 required  0.0646460 seconds
-Sum is 500000500000 required  0.0611508 seconds
-Sum is 500000500000 required  0.0601616 seconds
-Sum is 500000500000 required  0.0656435 seconds
 \end{lstlisting}
+
+Sum is 500000500000 required  0.0782065 seconds
+
+Sum is 500000500000 required  0.0646460 seconds
+
+Sum is 500000500000 required  0.0611508 seconds
+
+Sum is 500000500000 required  0.0601616 seconds
+
+Sum is 500000500000 required  0.0656435 seconds
+
 We can see the execution time has gone up 10 times or more than that for the previous.
 \end{frame}
 
