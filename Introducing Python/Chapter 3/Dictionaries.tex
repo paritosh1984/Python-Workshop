@@ -9,7 +9,7 @@
  
  
 %Information to be included in the title page:
-\title{Dictionaries and Sets}
+\title{Dictionaries In Python}
 \author{Vivek K. S., Deepak G.}
 \institute{Information Systems Decision Sciences (ISDS)\\
 MUMA College of Business\\
@@ -17,6 +17,19 @@ University of South Florida \\
 Tampa, Florida}
 \date{2017}
  
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
 \begin{document}
 \frame{\titlepage}
 
@@ -34,29 +47,36 @@ Tampa, Florida}
 
 \begin{frame}[fragile]
 \frametitle{Creating a Dictionary}
+Dictionaries can be created as follows:
 \begin{lstlisting}
->>>empty_dict = {}
->>>empty_dict
+# Creating an empty dictionary
+empty_dict = {}
+print(empty_dict)
 {}
 # Creating a dictionary with key-value pairs.
->>>capitals={'New York':'Albany',
+capitals={'New York':'Albany',
 'California':'Sacramento'}
->>>capitals
-{'California': 'Sacramento', 'New York': 'Albany'}
+print(capitals)
+{'California': 'Sacramento', 
+'New York': 'Albany'}
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Converting other Sequences into Dictionaries}
+Other Sequence Types can be converted to Dictionary objects as follows:
 \begin{lstlisting}
 # A list of two-item tuples:
->>>my_tuple = [ ('a', 'b'), ('c', 'd'), ('e', 'f') ]
->>>my_dict = dict(my_tuple)
+my_tuple = [ ('a', 'b'), ('c', 'd'), 
+('e', 'f') ]
+my_dict = dict(my_tuple)
+print(my_dict)
 {'a': 'b', 'c': 'd', 'e': 'f'}
 
 # A list of two-item lists:
->>>my_list = ( ['a', 'b'], ['c', 'd'], ['e', 'f'] )
->>>my_dict = dict(my_list)
+my_list = ( ['a', 'b'], ['c', 'd'], ['e', 'f'] )
+new_dict = dict(my_list)
+print(new_dict)
 {'c': 'd', 'a': 'b', 'e': 'f'}
 \end{lstlisting}
 \end{frame}
@@ -65,17 +85,18 @@ Tampa, Florida}
 \frametitle{Continued..}
 \begin{lstlisting}
 # A list of two-character strings:
->>>my_str_list = [ 'ab', 'cd', 'ef' ]
->>>my_dict = dict(my_str_list)
->>>my_dict
+my_str_list = [ 'ab', 'cd', 'ef' ]
+my_dict = dict(my_str_list)
+my_dict
 {'a': 'b', 'c': 'd', 'e': 'f'}
 
 # A tuple of two-character strings:
->>>my_str_tuple = ( 'ab', 'cd', 'ef' )
->>>my_dict = dict(my_str_tuple)
->>>my_dict
+my_str_tuple = ( 'ab', 'cd', 'ef' )
+my_dict = dict(my_str_tuple)
+my_dict
 {'a': 'b', 'c': 'd', 'e': 'f'}
 \end{lstlisting}
+It is to be noted that this works only for two-item sequences. For more than 2, an exception will be thrown.
 \end{frame}
 
 \begin{frame}
@@ -91,22 +112,20 @@ Tampa, Florida}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Sets in Python}
-\begin{itemize}
-\item Sets are similar to lists, but only the items are unique. No duplication is allowed.
-\item A set can be created as follows: set() or by using the curly braces with one or more comma-separated values.
-\item Sets are unordered just like Dictionaries.
-\item An empty pair of curly braces will only create a dictionary and not a set.
-\item The Python interpreter prints an empty set as set() and not as {}.
-\end{itemize}
+\begin{frame}
+\frametitle{More Examples in Dictionaries}
+More code examples are available at --
+ 
+\url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%203}
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Summary}
 \begin{itemize}
-\item We learned two important sequence data structures in Python, the Set and Dictionary type.
-\item We learned the different capabilities they provide and how they differ from Lists and Tuples.
+\item We learned a very important sequence data structures in Python, the Dictionary type.
+\item We learned the different capabilities it provides and how it differ from Lists and Tuples.
+\item We learned the different operations that could be performed on/with Dictionaries.
 \end{itemize}
 \end{frame}
 \end{document}
