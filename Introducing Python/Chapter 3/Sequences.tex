@@ -143,6 +143,35 @@ a,b = b,a
 \end{frame}
 
 \begin{frame}
+\frametitle{Introducing Sets}
+\begin{itemize}
+\item A set is an unordered collection of zero or more immutable Python data objects. 
+\item Sets do not allow duplicates and are written as comma-delimited values enclosed in curly braces. 
+\item The empty set is represented by set(). \item Sets are heterogeneous like lists and tuples.
+\item Even though sets are not considered to be sequential, they do support a few of the familiar operations presented earlier in lists and tuples.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications and Operations Using Sets}
+\begin{itemize}
+\item Common applications include membership testing, removing duplicates from a sequence, and computing mathematical operations such as intersection, union, difference, and symmetric difference.
+\item Like other collections, sets support x in set (membership), len(set), and "for x in set" (iteration). 
+\item Being an unordered collection, sets do not record element position or order of insertion. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Frozen Sets}
+\begin{itemize}
+\item There are currently two builtin set types in Python, set and frozenset. 
+\item The set type is mutable -- the contents can be changed using methods like add() and remove(). 
+\item Since it is mutable, it has no hash value and cannot be used as either a dictionary key or as an element of another set. 
+\item The frozenset type is immutable and hashable -- its contents cannot be altered after it is created; however, it can be used as a dictionary key or as an element of another set.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Summary}
 \begin{itemize}
 \item We understood what sequences are in Python.
