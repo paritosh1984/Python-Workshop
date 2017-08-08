@@ -112,24 +112,33 @@ The following are the common operations in List.
 \end{frame}
 
 \begin{frame}
-\frametitle{Tuples}
-Similar to lists, tuples are sequences of arbitrary items. 
-\begin{itemize}
-\item Tuples are is the immutable collection sequence type in Python.
-\item Tuples can’t be modified using add, delete, or changing of items after the tuple is defined. A tuple is this a constant list.
-\item A tuple can be created using ().
-\item Notice that a list can be created as follows "list()".
-\end{itemize}
+\frametitle{More Examples in Lists}
+More code examples are available at --
+ 
+\url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%203}
 \end{frame}
 
 \begin{frame}
+\frametitle{Tuples}
+Similar to lists, tuples are sequences of arbitrary items. 
+\begin{itemize}
+\item Tuples are the immutable collection sequence types in Python.
+\item Tuples can’t be modified using add, delete, or changing of items once the tuple is created. A tuple is thus a constant list type.
+\item A tuple can be created using a pair of parenthesis ().
+\item Notice that it is different from how a list can be created by saying "list()".
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Tuple Unpacking}
 \begin{itemize}
-\item Multiple variables can be assigned at one go using Tuples in Python
-\item This underlying nature has a bigger advantage in Python is a few  operations such as variable swapping.
+\item Multiple variables can be assigned with values at one go using Tuples in Python.
+\item This underlying implementation has a bigger advantage in Python in a few  operations such as swapping two/more variables.
 \item In other programming languages, particularly statically-typed language, it is more complicated than how it's done in Python.
 \item Without the use of a temporary variable, unlike in other languages, in Python, two variables can be swapped as follows:
+\begin{lstlisting}
 a,b = b,a
+\end{lstlisting}
 \end{itemize}
 \end{frame}
 
