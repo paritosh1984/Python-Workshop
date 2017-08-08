@@ -16,6 +16,19 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
  
 \begin{document}
 \frame{\titlepage}
@@ -23,53 +36,62 @@ Tampa, Florida}
 \frametitle{Objectives}
 \begin{itemize}
 \item To understand built-in data sequence types such as Lists, Sets, Tuples and Dictionaries.
-\item To understand their use and advantages.
-\item To understand iterations and constructs that support sequences.
+\item To understand their applications and advantages.
+\item To understand iterators and constructs that support sequences.
 \item To learn the different operations that could be performed on these types.
 \end{itemize}
 \end{frame}
 \begin{frame}
 \frametitle{Lists}
 \begin{itemize}
-\item Lists are a collection of data elements arranged sequentially.
+\item A list is a collection of data elements arranged sequentially.
 \item They are mutable in nature, in that they can be appended to, and data removed from.
 \item Lists are enclosed by a pair of squared brackets '[]'
 \item Lists in Python are heterogeneous. A list can contain any different type of data.
-\item Lists are especially good for keeping track of things that might change.
-\item A list could be created by saying [] or list().
+\item Lists are especially good for keeping track of things that could change in the course of the program execution.
+\item A list could be created by a pair of squared-brackets [] or list().
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{Creating a List of Lists}
-A list could be created with other lists as elements of it.
+\frametitle{Creating a List}
+A list could be created as follows:
 \begin{lstlisting}[language=Python]
->>>cities = ['Chicago','San Francisco','New York']
->>>metros = ['Dallas','Las Vegas', cities]
-['8','11','2017']
+cities = ['Chicago','San Francisco','New York']
+# A list could also become an 
+# element of another list 
+metros = ['Dallas','Las Vegas', cities]
+print(cities)
+['Chicago', 'San Francisco', 'New York']
+print(metros)
+['Dallas', 'Las Vegas', ['Chicago', 
+'San Francisco', 'New York']]
 \end{lstlisting}
 \begin{itemize}
 \item Changing the cities list here modifies the  metros list as well.
-\item This is because, cities is just a reference to the block of memory containing "cities list" and that is being reflected in the metros list.
+\item This is because, cities is just a reference to the block of memory containing "cities list" and changes to it is being reflected in the metros list.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Data Type Conversions in Lists}
-Converting a string to a list as easy as list('Python')
-
-A string could also be converted into a List by using the split() method by splitting at a character of our choice.
-
+Converting a string to a list is easy as follows:
 \begin{lstlisting}[language=Python]
->>>birthday = '8/11/2017'
->>>birthday.split('/')
-['8','11','2017']
-\end{lstlisting}
-A list can be converted to a String using join() as follows:
-\begin{lstlisting}
->>>list = ['I','love','Python']
->>>' '.join(list)
+language = list('Python')
+print(language)
+['P', 'y', 't', 'h', 'o', 'n']
+
+# Converting String to List using split()
+birthday = '8/11/2017'
+dob = birthday.split('/')
+print(dob)
+['8', '11', '2017']
+
+# List can be converted to a String using join() as follows:
+statement = ['I','love','Python']
+sentence = ' '.join(statement)
+print(sentence)
 'I love Python'
 \end{lstlisting}
 \end{frame}
@@ -79,7 +101,7 @@ A list can be converted to a String using join() as follows:
 The following are the common operations in List.
 \begin{itemize}
 \item Adding elements to the list using add, append and insert.
-\item Indexing and Slicing.
+\item Indexing and Slicing for data retrieval.
 \item Modifying the list using indexing and Slicing techniques.
 \item Concatenating Lists.
 \item Removing items from the list using "del" remove and pop.
