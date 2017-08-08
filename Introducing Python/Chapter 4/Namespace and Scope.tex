@@ -1,0 +1,56 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Namespace and Scope}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Namespaces and Scope}
+\begin{itemize}
+\item Names or variables can refer to different things based on where they are used.
+\item A program has various namespaces which are regions in which a name is unique and not related to the same name in other namespaces.
+\item Each program has its own namespace and likewise each function has its own namespace.
+\item A variabel named 'a' in the main program is different from a variable inside a function, also named 'a'.
+\item But a variable in the main program can be accessed from inside the function as it is part of the global namespace. The reverse is not true.
+ 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Complete Coding Exercise}
+Detailed Coding Exercise is available at --
+ 
+\url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%204}
+\end{frame}
+
+\end{document}
