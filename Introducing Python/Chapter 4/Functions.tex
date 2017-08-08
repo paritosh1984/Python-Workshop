@@ -16,6 +16,20 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
  
 \begin{document}
 \frame{\titlepage}
@@ -23,10 +37,11 @@ Tampa, Florida}
 \begin{frame}
 \frametitle{Functions in Python}
 \begin{itemize}
-\item Functions are the best way to enclose all the pieces of code that need to be used over and over again.
+\item Functions are the best way to write reusable code.
+\item Simply put, its a block of code that may/may not take input(s) and performs a specific operation over it/them.
+\item A function may or may not return a value.
 \item Functions improve re-usability and readability.
-\item Functions have a name and may or may not take arguments.
-\item A function may or may not return data.
+\item Functions have a name and that's how they are referred to by the calling object in the program.
 \item Functions need to be defined before being called.
 \item In Python, we define a function using the "def" keyword.
 \end{itemize}
@@ -42,7 +57,7 @@ The following function shows a typical Python function.
 \begin{itemize}
 \item Its defined using "def".
 \item It has a name "add" and takes in two arguments x and y.
-\item Notice that x and y are not limited by any data type and are mere variables that point to an object in memory.
+\item Notice that x and y are not limited by any data type and are mere references that point to an object in memory.
 \item The function returns the sum of the two variables.
 \item Notice that there is no need to use curly braces or enclosing mechanism to enclose the function body.
 \item Instead, Python uses indentation to mark a block of code.
@@ -51,7 +66,7 @@ The following function shows a typical Python function.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Continued}
+\frametitle{Continued..}
 In the previous example, the function returned a value. In some situations, there could be functions that don't return anything at all.
 \begin{lstlisting}[language=Python]
 def print_something(message):
