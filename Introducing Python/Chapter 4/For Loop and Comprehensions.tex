@@ -16,7 +16,22 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
- 
+
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+
 \begin{document}
 \frame{\titlepage}
 
@@ -32,18 +47,19 @@ Python uses For loop to iterate over sequential data structures.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Pythonic Way of Iterating}
-\begin{lstlisting}[language=Python]
+\frametitle{Iterating Over a List}
 We can iterate over a list as follows:
-sequences = ['lists','tuples','dictionaries','sets']
+\begin{lstlisting}[language=Python]
+
+seq = ['lists','tuples','dictionaries','sets']
 count = 0
-while count < len(sequences):
-    print(sequences[count])
+while count < len(seq):
+    print(seq[count])
     count += 1  
 
-# The more pythonic way of doing it.
-for seq in sequences:
-    print(seq)
+# The more pythonic way of doing it will be.
+for s in seq:
+    print(s)
 \end{lstlisting}
 \end{frame}
 
@@ -57,7 +73,8 @@ for letter in word:
 	print(letter)
 
 # Dictionaries
-information = {'dept': 'isds', 'college': 'Muma','university': 'USF'}
+information = {'dept': 'isds', 'college': 'Muma',
+'university': 'USF'}
 for info in information.items():
     print(info)
 \end{lstlisting}
@@ -65,6 +82,7 @@ for info in information.items():
 
 \begin{frame}[fragile]
 \frametitle{Iterating Multiple Sequences with zip()}
+Multiple Sequences can be iterated in parallel using zip without the need to write complex nested for loops.
 \begin{lstlisting}
 days = ['Monday', 'Tuesday', 'Wednesday']
 fruits = ['banana', 'orange', 'peach']
@@ -82,15 +100,21 @@ Note - zip() stops when the shortest sequence is done.
 
 
 \begin{frame}[fragile]
-\frametitle{Creating Other Iterables with zip}
-zip() can be used to walk through multiple sequences and make tuples from items at the same offsets.
+\frametitle{Creating Iterables with zip}
+zip() can also be used to walk through multiple sequences and make tuples from items at the same offsets.
 \begin{lstlisting}	
 
-eng_days = 'Monday','Tuesday','Wednesday'
-esp_days = 'lunes','martes','miercoles'
+english = 'Monday', 'Tuesday', 'Wednesday'
+french = 'Lundi', 'Mardi', 'Mercredi'
 
-list(zip(eng_days, esp_days))
-dict(zip(eng_days, esp_days))
+days = list(zip(english, french))
+print(days)
+[('Monday', 'Lundi'), ('Tuesday', 'Mardi'),
+ ('Wednesday', 'Mercredi')]
+
+dict(zip(english, french))
+{'Monday': 'Lundi', 'Tuesday': 'Mardi',
+ 'Wednesday': 'Mercredi'}
 \end{lstlisting}
 
 \end{frame}

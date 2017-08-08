@@ -16,6 +16,19 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
  
 \begin{document}
 \frame{\titlepage}
@@ -78,7 +91,7 @@ else:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Multiple Conditional Possibilities}
+\frametitle{Multiple Conditions Using elif}
 In the event that there are more than 2 possibilities, we use a special construct called the elif which is just the shortened version of else..if.
 \begin{lstlisting}[language=Python]
 
@@ -86,11 +99,11 @@ time = 'morning'
 if time == 'morning':
     print('Its time for Breakfast!!')
 elif time == 'noon':
-    print('Its time for lunch')
+    print('Its time for lunch!!')
 elif time == 'night':
-    print('Its time for lunch')
+    print('Its time for dinner!!')
 else:
-    print('I am hungry all the time anyways :(')
+    print('I am hungry all the time anyways')
 	
 \end{lstlisting}
 \end{frame}
@@ -110,33 +123,13 @@ if a is b:
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Coding Exercise}
-Now that you have mastered the art of variable comparison in Python, answer this.
-\begin{lstlisting}[language=Python]
-a = 256
-b = 256
-a == b
-True
-a is b
-True
-
-a = 257
-b = 257
-a == b
-True
-a is b
-False
-	
-\end{lstlisting}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Possible False Conditions}
 These are some of the possible conditions that could result in False
 \begin{lstlisting}[language=Python]
 boolean False
-null None
+None
 zero integer 0
 zero float 0.0
 empty string ''
@@ -156,28 +149,51 @@ if a:
 	print('Its  True')
 else:
 	print('Its False')
+Its False
+\end{lstlisting}
+In the example above, a is assigned a value 0.
+As per our rule set, a zero integer is evaluates to False.
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Examples}
+In our second example, we are going to check how the None type is evaluated.
+\begin{lstlisting}[language=Python]
 # Example 2
 def add(x,y):
     if type(x) is int and type(y) is int:
         return(x+y)
-
+# Passing an integer and string        
+sum = add(5,'now') 
+    
 if sum:
     print('The sum is', sum)
 else:
     print('I dont see no sum')
+# The  reason being, the return is None
+print(sum)
+None
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Repeat with While}
-While is the simplest looping construct that helps us to repeat a step any number of times as long as the condition evaluates to True.
+'While' is the simplest looping construct that helps us to repeat a step any number of times as long as the condition evaluates to True.
 \begin{lstlisting}[language=Python]
 count = 1
 while count < 5:
     print('The count is', count)
     count += 1
+1
+2
+3
+4
+5
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Break the Loop with Break}
 Using break can help us break the loop midway.
 \begin{lstlisting}[language=Python]
 count = 1
@@ -187,14 +203,18 @@ while count < 5:
     if count == 3:
     	break
 \end{lstlisting}
+The count is 1
+
+The count is 2
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Use of Continue}
-Continue can be used to continue with the loop.
+Continue can be used to continue with the loop execution.
 \begin{lstlisting}[language=Python]
 while True:
-    value = input("Enter an integer of choice. Press q to quit: ")
+    value = input("Enter an integer of choice.
+     Press q to quit: ")
     if value == 'q': # quit
         break
     else:
@@ -210,11 +230,18 @@ while True:
 \end{frame}
 
 \begin{frame}
+\frametitle{More Examples in Lists}
+More code examples are available at --
+ 
+\url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%204}
+\end{frame}
+
+\begin{frame}
 \frametitle{Summary}
 \begin{itemize}
 \item We understood looping and conditional structures in Python.
 \item We learned the need for iteration and how it makes programming of repeated tasks easier.
-\item We understand looping structures such as if..else, while and for and other keywords such as break and continue.
+\item We understand looping structures such as if..else, while and other special operations such as break and continue.
 \item We also learned nesting and other complex code structures.
 \end{itemize}
 \end{frame}
