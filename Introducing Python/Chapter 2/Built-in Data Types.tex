@@ -17,7 +17,18 @@ University of South Florida \\
 Tampa, Florida}
 \date{2017}
  
- 
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
  
 \begin{document}
  
@@ -30,7 +41,7 @@ Tampa, Florida}
 \item To understand built-in data types such as integers, floats, strings and Boolean type.
 \item To learn their usage and specific behavior.
 \item To understand objects in Python.
-\item To understand dynamic typing in Python type conversion.
+\item To understand dynamic typing in Python.
 \item To understand variables and references.
 \end{itemize}
 \end{frame}
@@ -38,10 +49,28 @@ Tampa, Florida}
 \begin{frame}
 \frametitle{Objects in Python}
 \begin{itemize}
-\item In Python, every data structure is an object. 
+\item In Python, everything is an object.
+\item Different programming languages have different definitions to objects.
+\item In some languages, it is a very strict definition that dictates that all objects must have methods and attributes associated with them.
+\item Such objects are subclassable.
+\item In Python, the definition is a little loose, which says that objects may or may not have attributes and methods.
+\item Everything that can be assigned to a variable and passed as an argument to a function qualifies to be an object in Python.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Objects in Python}
+From Guido's Blog --
+
+One of my goals for Python was to make it so that all objects were "first class." By this, I meant that I wanted all objects that could be named in the language (e.g., integers, strings, functions, classes, modules, methods, etc.) to have equal status. That is, they can be assigned to variables, placed in lists, stored in dictionaries, passed as arguments, and so forth.
+\end{frame}
+
+\begin{frame}
+\frametitle{Objects in Python}
+\begin{itemize}
 \item Integers, Strings, Lists, Functions, Modules are all implemented as objects. 
 \item An object is in its simple definition a  block(s) of memory that contains data in it.
-\item The data has a type associated with it and consequentially a set of behaviors and what could be done on/with it.
+\item The data has a type associated with it and consequently a set of behaviors (methods) and what could be done with them to change its attributes.
 \item The type of data also determines its mutability and immutability.
 \item The advantage of this implementation is consistency.
 \end{itemize}
@@ -52,7 +81,7 @@ Tampa, Florida}
 \begin{itemize}
 \item Python is a dynamically typed language.
 \item Unlike statically-typed languages like Java or C++, Python does not attach the type of an object to its variable identifier.
-\item Instead, the assignment of an object to an identifier simply attaches a name to the block of memory containing the data and acts only a reference to it. 
+\item Instead, the assignment of an object to an identifier simply attaches a name to the block of memory containing the data and acts only as a reference to it. 
 \item In python, we use the type() method to identify the type of the variable.
 \end{itemize}
 \begin{lstlisting}[language=Python, keywordstyle=\color{blue}]
@@ -77,11 +106,11 @@ The following characters are allowed in identifier names.
 Underscore (_)
 \end{lstlisting}
 \end{itemize}
-Their usage is as follows.
+Their usage is as follows:
 \begin{itemize}
-\item Names cannot begin with a digit as seen in most programming languages. 
-\item Python treats names that begin with an underscore in special ways.
-\item Reserved keywords in Python cannot be used for identifier names.
+\item Names cannot begin with a digit.
+\item Python treats names that begin with an underscore in special ways. For example \_\_init\_\_
+\item Reserved keywords in Python cannot be used for identifier names. \url{https://docs.python.org/2.5/ref/keywords.html}
 \end{itemize}
 \end{frame}
 
@@ -91,42 +120,42 @@ Python offers some unique flavors in the most common operations we use on a dail
 
 Python offer two types of division operation.
 \begin{lstlisting}[language=Python]
-/ carries out decimal division.
+# '/' (slash) carries out decimal division.
 7/2 = 3.5.
-// carries out integer division also called 
-as floor division.
+# '//' (double slash) carries out integer
+# division also called as floor division.
 7//2 = 3
 
 x = 77
 x //= 10
-x
-[Output] 7
+print(x)
+7
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Assignment and Operation in Python}
-Python offers some unique flavors in the most common operations we use on a daily basis:
+\frametitle{Arithmetic Operation and Assignment in Python}
+An arithmetic operation and assignment of the result could be done as easy as follows between two operands.
 
-Python offer two types of division operation.
 \begin{lstlisting}[language=Python]
-Adding two integers (numbers) could be done as simple as 
+Adding two integers (numbers).
 a = 95
 a -= 3
-a
-[Output] 92
+print(a)
+92
 a *= 2
-a
-[Output] 184
+print(a)
+184
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Other Operations in Python}
+\frametitle{Common Operations in Python}
+The Modulo operator returns the remainder of a division operation.
 \begin{lstlisting}[language=Python]
 Modulo operation 9%5 = 4
 
-Getting the reminder & quotient can 
+# Getting the reminder & quotient can also 
 be done by using divmod()
 
 divmod(9,5) = (1,4)
@@ -136,17 +165,16 @@ divmod(9,5) = (1,4)
 
 \begin{frame}[fragile]
 \frametitle{Type Conversions in Python}
-Python offers way to convert one type into another:
+Python also offers ways to convert one type into another:
 
 \begin{lstlisting}[language=Python]
-Converting a Boolean to int
-
+# Converting a Boolean to integer
 >>>int(True)
 1
 >>>int(False)
 0
 
-Converting a Float to int
+# Converting a Float to integer
 
 >>>int(55.5)
 55
@@ -157,16 +185,14 @@ Converting a Float to int
 \end{frame}
 \begin{frame}[fragile]
 \frametitle{Continued..}
-Python offers way to convert one type into another:
-
 \begin{lstlisting}[language=Python]
-Converting a String to int
+# Converting a String to integer
 >>>int('99')
 99
 >>>int('-55')	
 -55
 
-Converting an int to char
+# Converting an int to char
 >>>chr(97)
 'a'
 Getting the ASCII code of a character.
@@ -174,20 +200,24 @@ Getting the ASCII code of a character.
 97
 
 ord() and chr() are built-in functions in Python.
-
-footnote - Refer https://docs.python.org/3/library/functions.html for more details.
+ 
 \end{lstlisting}
+\footnote{\tiny{Refer https://docs.python.org/3/library/functions.html for more details.}}.
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Integer Overflow}
 \begin{itemize}
 \item Python handles really long numbers with ease.
-\item This is a feature which most Programming languages have a problem with commonly referred to a s "Integer overflow".
+\item This is a feature which most Programming languages have a problem with, commonly referred to a s "Integer overflow".
 \item For example 10**100 (10 raised to the power 100) will result in a huge number called the googol.
 \item Even if an multiplication is to be performed between two googols, Python can easily handle that math and support the operation.
 \item Lets try it.
 \end{itemize}
+\begin{lstlisting}[language=Python]
+	googol = 10**100
+	print(googol*googol)
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -195,7 +225,7 @@ footnote - Refer https://docs.python.org/3/library/functions.html for more detai
 Floats are numbers with decimal points. 
 \begin{itemize}
 \item All the operations that work on integers can be applied to floats as well.
-\item Float type conversion can be done using float()
+\item Float type conversion can be done using the method float() with the data passed as an argument to it.
 \item Strings can be converted to floats as well.
 
 \end{itemize}
@@ -203,7 +233,7 @@ Floats are numbers with decimal points.
 
 \begin{frame}[fragile]
 \frametitle{Strings in Python}
-A String is a sequence type in Python. It is basically a string of characters.
+A String is a sequence type in Python. It is simply a sequence of characters.
 \begin{itemize}
 \item In Python, Strings are immutable.
 \item The data in a String cannot be modified, but copies can be created.
@@ -223,44 +253,45 @@ Python
 \frametitle{Triple Quotes and Docstrings}
 Triple Quotes is a unique flavor offered by Python.
 \begin{itemize}
-\item They are most commonly used to create multi-line Strings.
+\item They are most commonly used to create multi-line Strings that are sometimes used as comments and docstrings.
 \item One of their most common uses is in creating docstrings.
-\item A docstring is a string literal specified in a function or any piece of code as a comment, to document that specific segment of code.
+\item A docstring is a string literal specified in a function or any piece of code as a comment, to document that specific segment of code. For example,
  
 \end{itemize}
 
 \begin{lstlisting}[language=Python]
-	def add(x,y):
-		'''The function add two integers
-		and returns the sum.'''
+def add(x,y):
+	'''The function adds two integers
+	and returns the sum.'''
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Continued..}
-There are two ways to see the docstring.
+There are two ways to get the docstring.
 
-\begin{lstlisting}[language=Python]
-	def add(x,y):
-		'''The function add two integers
-		and returns the sum.'''
-	 
-	help(add)
-	Help on function add in module __main__:
+\begin{lstlisting}
+# Method #1 -Using help()
 
-	add(x, y)
-    	The function adds two integers 
-    	and returns the sum.
-    	
-    add.__doc__
-    'The function adds two integers \n and 
-    returns the sum.'
+help(add)
+
+'Help on function add in module __main__:
+
+add(x, y)
+The function adds two integers and returns 
+the sum.'
+
+# Method #2 - Using __doc__	
+add.__doc__
+
+'The function adds two integers and 
+returns the sum.'
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}
 \frametitle{Common String Operations}
-The following are some of the common operations in a String.
+The following are some of the common String operations.
 \begin{itemize}
 \item String Concatenation.
 \item Duplication.
@@ -275,10 +306,10 @@ The following are some of the common operations in a String.
 \begin{frame}
 \frametitle{Summary}
 \begin{itemize}
-\item We understood Build-in data types in Python.
+\item We understood Built-in data types in Python.
 \item We learned how Python works as a Dynamically typed language.
-\item We understood the use of integers, strings and floats and the operation that could be performed on them.
-\item We learned how these data types act as a building block towards building larger complex program structures. 
+\item We understood the use of integers, strings and floats and the operations that could be performed on them.
+\item We understood type conversion between different types.
 \end{itemize}
 \end{frame}
 \end{document}
