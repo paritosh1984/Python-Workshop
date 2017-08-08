@@ -136,7 +136,7 @@ language_rating(rating=10,lang='Python')
 
 \begin{frame}[fragile]
 \frametitle{Mixing Positional and Keyword Arguments}
-Keyword and Positional arguments could be mixed as well. But it should be noticed that Positional arguments should always be specified first.
+Keyword and Positional arguments could be mixed as well. But it should be noted that Positional arguments should always be specified first.
 \begin{lstlisting}[language=Python]
 def language_rating(lang, rating):
 	print('I rate {} {}/10.'.\
@@ -181,7 +181,7 @@ def print_args(*args):
 
 print_args('hello','world',5,6.0,True)
 
-#If you call it with no arguments, you get nothing in *args:
+# Calling the method with no arguments:
 print_args()
 Positional argument tuple: ()
 \end{lstlisting}
@@ -194,7 +194,8 @@ We could use "**" to gather keyword arguments into a dictionary where the argume
 \begin{lstlisting}
 def print_kwargs(**kwargs):
     print('Keyword arguments:', kwargs)
-print_kwargs(NYC='Albany', California='Sacramento')
+print_kwargs(NYC='Albany',
+ California='Sacramento')
 Keyword arguments: {'NYC': 'Albany',
  'California': 'Sacramento'}
 \end{lstlisting}
@@ -209,12 +210,13 @@ We can pass Functions as arguments to other functions as functions are objects i
 	def arithmetic(func,x,y):
 		return(func(x,y))
 	arithmetic(add,5,10)
+	15
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Lambda Functions}
-Lambda functions are used to create anonymous on the go functions in place of little functions which might not be reused later.
+Lambda functions are used to create anonymous "on the go" functions in place of little function definitions that might not be reused later and is an overkill.
 
 Lambda functions can be expressed in a single statement.
 \begin{lstlisting}[language=Python]
@@ -222,15 +224,24 @@ def edit_text(sentence, func):
     words = sentence.split()
     final_sentence = " ".join(func(word)\
      for word in words)
-    return(final_sentence.strip())
-    
+    return(final_sentence.strip())  
 def capitalize_sentence(word):
     return word.capitalize()
     
-sentence = 'do i wanna know by arctic monkeys'
+sentence = 'python was authored by 
+Guido van Rossum'
 edit_text(sentence,capitalize_sentence)
+'Python Was Authored By Guido Van Rossum'
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}
+\frametitle{Complete Coding Exercise}
+Complete Coding Exercise is available at --
+ 
+\url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%204}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Summary}
