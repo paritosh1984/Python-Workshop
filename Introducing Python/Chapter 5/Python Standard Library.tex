@@ -16,7 +16,20 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
- 
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
 \begin{document}
 \frame{\titlepage}
 
@@ -24,14 +37,14 @@ Tampa, Florida}
 \frametitle{Python Standard Library}
 \begin{itemize}
 \item The Python Standard Library offers ready to import modules for most common tasks in Programming with Python.
-\item These modules help a lot as they perform many useful tasks are kept away from the core language to avoid bloating.
+\item These modules help the programmer in plenty of ways as they offer many useful pre-built solutions to most common requirements and are kept away from the core language to avoid bloating.
 \item Some Useful resources.
 \begin{itemize}
-\item Documentation of Modules - https://docs.python.org/3/library/
-\item Tutorial on their usage - https://docs.python.org/3.3/tutorial/stdlib.html
+\item Documentation of Modules - \url{https://docs.python.org/3/library}
+\item Tutorial on their usage - \url{https://docs.python.org/3.3/tutorial/stdlib.html}
 \item Module of the Week by Doug
-Hellmann - https://pymotw.com/2/contents.html
-\item The Python Standard Library By Example Book - https://doughellmann.com/blog/the-python-standard-library-by-example/
+Hellmann - \url{https://pymotw.com/2/contents.html}
+\item The Python Standard Library By Example Book - \url{https://doughellmann.com/blog/the-python-standard-library-by-example}
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -57,10 +70,10 @@ list_counter.most_common()
 
 \begin{frame}
 \frametitle{Deque}
-Deque is a special data structure that is a combination of both Stack and Queue. A deque is a double-ended queue. 
+Deque is a special data structure that is a combination of both Stack and Queue type. A deque is a double-ended queue. 
 \begin{itemize}
 
-\item Its useful to add and delete elements from both ends of the sequence.
+\item Its useful as a structure where we can add and delete elements from both ends of the sequence.
 \item The function popleft() removes the leftmost item and pop() removes the rightmost element.
 \item A deque could be used to create a palindrome checker as follows.
 \end{itemize}
@@ -92,7 +105,8 @@ chain() runs through each argument as though they are all part of one iterable:
 
 \begin{lstlisting}[language=Python]
 import itertools
-for item in itertools.chain([1, 2], ['one', 'two']):
+for item in itertools.chain([1, 2], 
+['one', 'two']):
 	print(item)
 \end{lstlisting}
 
