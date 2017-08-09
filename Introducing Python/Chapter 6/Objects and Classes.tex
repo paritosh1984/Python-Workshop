@@ -16,6 +16,19 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
  
 \begin{document}
 \frame{\titlepage}
@@ -24,7 +37,7 @@ Tampa, Florida}
 \frametitle{What are Objects?}
 \begin{itemize}
 \item Everything in Python is an object. That includes numbers, strings, sequences, functions, modules and packages.
-\item An object contains both data and the methods that define the behaviour it could be part of in the program.
+\item An object contains both data and the methods that define the behaviour it could be part of, in the program.
 \item For example, an integer object contains numerical data and could become part of arithmetic operations such as addition,exponentiation etc.
 \item Objects are instances of larger, concrete templates called as Classes. 
 \end{itemize}
@@ -33,7 +46,7 @@ Tampa, Florida}
 \begin{frame}[fragile]
 \frametitle{Classes}
 \begin{itemize}
-\item Classes are used to defined data types and behaviours in Object-oriented programming paradigm.
+\item Classes are used to define data types and behaviours in Object-oriented programming paradigm.
 \item Once a class is defined, instances of the classes could be spawned easily whenever required.
 \item A simple class definition looks like this:
 
@@ -54,10 +67,10 @@ student.name
 \begin{itemize}
 \item The code has different components to it. The keyword 'class' is used to create a new class definition.
 \item The class has a name and in this case, it is "Student". We are going to create a custom Student data type.
-\item No arguments are passed to it as we are only going to create an instance of the Student data type.
+\item No arguments are passed to it.
 \item The \_\_init\_\_ is the initializer function in Python. Note that it is written with two trailing underscores and two leading underscores.
 \item The first argument passed to the init function is always a reference that points to the current object instance. In Python, we use "self" to represent this reference.
-\item Self is not a keyword as such. But it is good practice to use self for this purpose.
+\item \textit{Self} is not a keyword as such. But it is good practice to use \textit{Self} for this purpose.
 \item The instance has one property called the name and it is initialized as seen in the code:
 self.name = name
 \end{itemize}
@@ -72,11 +85,11 @@ student = Student('Rick')
 \begin{itemize}
 \item Looks up the definition of the Student class in the current namespace.
 \item Instantiates/Creates a new object in the memory.
-\item Call's the init method (which is the initializer), passing the newly created object reference as self along with the other argument 'Rick' as the name of the student.
-\item Assigns the value of the name to the object.
+\item Calls the init method (which is the initializer), passing the newly created object reference as "self" along with the other argument 'Rick' as the name of the student.
+\item Assigns the value of the name to the newly created object.
 \item And it finally returns the new object.
-\item Assigns the object itself to the variable student. Now student is a reference that points to a Student object residing in the memory with the name "Rick".
-\item This new object can be used for any purpose in the program, as far as its data type and behavioral definition supports it.
+\item Assigns the object itself to the variable student. Now student is a reference that points to the Student object residing in the memory with the name "Rick".
+\item This new object can be used for any purpose in the program, as far as its data type and behavioral definition supports them.
 \end{itemize}
 \end{frame}
 
@@ -85,10 +98,10 @@ student = Student('Rick')
 \frametitle{The Constructor and Initializer Function}
 \begin{itemize}
 \item The init method is used to initialize the object we are creating.
-\item In this example, we are initializing the  instance's name property with a value that is passed to the name argument(Rick).
+\item In this example, we are initializing the  instance's \textit{name} property with a value that is passed to the name argument(Rick).
 \item The self is simply a reference to that particular instance.
 \item Since, self already is a reference to the instance, it is understood that the instance has been already been created.
-\item This is done implicitly by the \_\_new\_\_ function whose implementation is hidden from us. 
+\item This is done implicitly by the \textbf{\_\_new\_\_} function whose implementation is hidden from us. 
 \item The new function is the Constructor function in Python. It builds/instantiates(creates) the object instance in the memory.
 \item It can be overridden in special cases.
 \end{itemize}
@@ -137,12 +150,12 @@ class Doctor(Faculty):
     def __init__(self, name):
         self.name = 'Doctor ' + name
     def teach(self):
-        print('Can teach Graduate students.')
+        print(self.name,'teaches Graduates.')
 class Professor(Faculty):
     def __init__(self, name):
         self.name = 'Professor ' + name
     def teach(self):
-        print('Can teach Undergraduate students.')
+        print(self.name,'teaches Undergrads.')
 \end{lstlisting}
 \end{frame}
 
@@ -178,7 +191,7 @@ class Professor(Faculty):
 \item Static methods.
 \end{itemize}
 \item Some attributes and methods are part of the class itself and some are only part of the object instances of the class.
-\item The way to differentiate them is by using the "self" argument. When we encounter a self argument in the methods within the class, we can conclude that they are instance methods.
+\item The way to differentiate between them is by using the "self" argument. When we encounter a self argument in the methods within the class, we can conclude that they are instance methods.
 \item The first argument to an instance method is always self, and whenever these instance methods are called (with the objects using dot notation method of calling), the object itself is passed to the method.
 \item Instance method only affect the object instance calling them. Whereas, a class method affects the entire class. Any change made to the class affects all the objects.
 \end{itemize}
@@ -214,7 +227,7 @@ class Car():
 	@staticmethod
 	def promo():
 		print('All these cars are for 
-		sale!!)
+		sale!!')
 Car.promo()
 All these cars are for sale!!
 \end{lstlisting}
