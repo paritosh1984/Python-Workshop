@@ -1,0 +1,115 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif} 
+ 
+ 
+%Information to be included in the title page:
+\title{Introduction To Python}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+  
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Session Plan}
+The following topics will be discussed in this four days.
+\begin{itemize}
+\item Introduction to Python's Data Types.
+\item Object Oriented Programming in Python.
+\item File and Data I/O.
+\item Scientific Computing using Numpy. 
+\item Pandas for Data Analysis.
+\item Data Visualization using Matlplotlib.
+\item Introduction to Data Structures and Algorithms.
+\item Building Abstract Data Structures using Python.
+\item Searching and Sorting Algorithms.
+\item Creating Tree Data Structures using Python.
+\item Where to go from here. 
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Introduction To Python}
+\begin{itemize}
+\item Python is a general-purpose, open-source, high-level, dynamically typed, interpreted language.
+\item It has a very easy to understand Syntax and easy prototyping ability.
+\item It has a gentle learning curve that helps a  programmer productive at a very early stage.
+\item It is relatively terse compared to other languages and requires comparatively  a few lines of code that could take more number of lines of code in other languages to solve a problem.
+\item Python is currently being used in various areas of computer science such as Web Development, Machine Learning, Neural Networks and also in Quantum Computing.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparison To Other Languages}
+\begin{itemize}
+\item Python is generally slower compared to C, C++ for computationally intensive applications.
+\item Where it lacks in speed relatively, it gains in speed of development which helps a programmer experiment more.
+\item The Standard Python Interpreter is implemented in C and this implementation is called "CPython".
+\item Python interpreters are becoming faster and newer implementations such as "PyPy" are faster than the CPython implementation.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python 2 Versus Python 3}
+\begin{itemize}
+\item Python 2 has been around for so long and comes as part of Linux and Apple machines.
+\item Python 3 is an improvement over Python 2, that has overcome many drawbacks of the language and is currently being widely adopted.
+\item The last version of Python 2, 2.7 is still supported and will be in general usage. But it is the last of the series.
+\item Some of the most prominent changes see in Python 3 is the print statement, string formatting and use of the Unicode Standard for text data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Let's Write Our First Python Program}
+Now that we have learned what Python is about, let's go ahead and write our first Python program.
+
+\begin{itemize}
+\item Open a file in your machine using either using notepad or a text editor of your choice.
+\item Type "print("Hello World!!")" and save the file.
+\item Name the file as \textit{first\_program.py} and save it.
+\item Open the terminal/command prompt and navigate to the path where the \textit{.py} file has been saved.
+\item Type the following command:
+
+python file\_name.py and hit enter and wait for the magic to happen.
+\item We have performed the first ritual of saying "Hello World!!" to our fellow programmers.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{We Begin Now}
+\centering
+Hope you enjoyed the Introduction. There is more to come and we hope you all enjoy 4 days of learning with us.
+
+
+Thank you. 
+\end{frame}
+\end{document}
+
