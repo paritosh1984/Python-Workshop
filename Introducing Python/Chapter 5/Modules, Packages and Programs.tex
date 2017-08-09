@@ -16,7 +16,20 @@ MUMA College of Business\\
 University of South Florida \\
 Tampa, Florida}
 \date{2017}
- 
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
 \begin{document}
 \frame{\titlepage}
 
@@ -35,15 +48,15 @@ Tampa, Florida}
 \begin{frame}[fragile]
 \frametitle{First Standalone Program}
 \begin{itemize}
-\item Create a file called ex1.py in your local machine. And open it in edit mode.
+\item Create a file called ex1.py on your computer. Open it in edit mode.
 \item Write the following piece of code.
 \begin{lstlisting}
-print('Hello, World!')
+print(5+5)
 \end{lstlisting}
-\item The line should print the message on the screen when it is executed.
-\item To run the file, we'll use the interactive  prompt (terminal for Mac users).
+\item The line should print the sum 10 on the screen when it is executed.
+\item To run the file, we'll use the Command  prompt (terminal for Mac users).
 \item At the prompt, we'll say python ex1.py and hit return.
-\item The message "Hello, World!" should come up on the prompt.
+\item The number "10" should be printed on the screen.
 \end{itemize}
 \end{frame}
 
@@ -55,22 +68,23 @@ print('Hello, World!')
 \begin{lstlisting}
 import sys
 print('Program arguments : ', sys.argv)
+print(type(sys.argv))
 \end{lstlisting}
 \item Execute the code from the command prompt as "python ex2.py".
-\item You will notice that the name of the python file was printed as an argument to the command.
-\item Passing a couple of more argument, we can understand that the arguments are internally converted into a list and the first argument to the program is always the file name itself. 
+\item You will notice that the name of the python file gets printed on the screen. It is because, the .py file is an argument in itself.
+\item Passing a couple of more arguments, we can understand that the arguments are internally converted into a list and the first argument to the program is always the file name itself. 
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Importing Modules}
 \begin{itemize}
-\item A module is only a file of Python code that can be reused.
+\item A module is Python code file that can be reused.
 \item Modules are reused by simply importing them into the current program. Example:
 \begin{lstlisting}[language=Python]
 dice.py
 def throw_dice():
-	"""Throw your dice like a player!"""
+	"""Roll your dice like a player!"""
 	from random import choice
 	possibilities = [1,2,3,4,5,6]
 	return choice(possibilities)
@@ -88,7 +102,7 @@ ex3.py
 \begin{itemize}
 \item In the example, we see two types of import statements.
 \item In dice.py, we import only the choice function from the random module. This is usually a best practice as it saves on memory and avoids unnecessary code imports.
-\item The random module is a fully standalone python code  with multiple functions and choice is one amongst them.
+\item The random module is a fully standalone python code  with multiple functions and \textit{choice} is one amongst them.
 \item In the ex3.py file, we import the dice.py module and using dice as a handle, we call the throw\_dice() function of it.
 \item Remember that throw\_dice() method is a property  of the dice object (In python, everything is treated as an object).
 \item The dot notation is used to call the property as seen in dice.throw\_dice().
@@ -117,12 +131,12 @@ print(arr.shape)
 \frametitle{Packages}
 \begin{itemize}
 \item Modules can be further organized into file hierarchies called Packages.
-\item Maybe in the previous exercise, we may want to roll one die and sometimes roll two dices.
-\item One way to structure this is to have two separate modules, one for a single dice and another for a pair of dices and each of them will have a function called roll.
+\item Maybe in the previous exercise, we may want to roll one die and sometimes roll two dice.
+\item One way to structure this is to have two separate modules, one for a single die and another for a pair of dice and each of them will have a function called roll.
 \item It will look something like this. 
 \begin{lstlisting}[language=Python]
 
-single.py
+# single.py
 def roll_dice():
 	"""Roll your dice like a player!"""
 	from random import choice
@@ -134,7 +148,7 @@ def roll_dice():
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Packages}
+\frametitle{Packages Continued}
  
 \begin{lstlisting}[language=Python]
 
@@ -146,7 +160,9 @@ def roll_dice():
 	return(choice([(one, two) 
 	for one in possibilites 
 	for two in possibilites]))
-	
+\end{lstlisting}
+We'll add another python file called \_\_init\_\_.py that contains the following code.
+\begin{lstlisting}
 #__init__.py
 from roll import single
 from roll import double
@@ -172,19 +188,26 @@ print("You have rolled {} and {}".
 format(sides[0],sides[1]))
 \end{lstlisting}
 
-When the above code is executed, the modules single and double will be imported from the package roll.	
+When the above code is executed, the modules "single" and "double" will be imported from the package "roll".	
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Packages}
+\frametitle{Explanation}
 \begin{itemize}
-\item The way to create a package is to place all the modules in single directory that has been named with the desired Package's name.
+\item The way the package is created is by placing all our modules in a single directory that has been named with the desired Package's name.
 \item The next step is to place a python file called \_\_init\_\_.py for Python to identify the directory as a Package.
-\item Once that is done, we are free to import the entire package or just the select modules from the package into our program.
-\item The methods of the module can be called by by the module name or the name(alias) assigned to the module as part of the import.
+\item Once that is done, we are free to import the entire package or just the select modules from the package into our program using \textit{from} as follows \textit{from roll import single}.
+\item The methods of the module can be called by the module name or the name(alias) assigned to the module as part of the import.
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Complete Coding Exercise}
+Complete coding exercise is available at \url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%205/Code\%20Examples}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Summary}
