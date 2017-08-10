@@ -46,3 +46,4 @@ ISDS, MUMA College of Business.
 
 Steps to install Anaconda on Windows: https://docs.continuum.io/anaconda/install/windows
 
+Try jupyter online without installation: https://try.jupyter.org/
