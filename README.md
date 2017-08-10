@@ -43,3 +43,6 @@ ISDS, MUMA College of Business.
 ## Other useful links
 
 ## FAQ
+
+Steps to install Anaconda on Windows: https://docs.continuum.io/anaconda/install/windows
+
