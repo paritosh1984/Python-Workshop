@@ -1,0 +1,230 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Data I/O}
+\author{Vivek K. S., Deepak G.}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+ 
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Memory Management}
+\begin{itemize}
+\item There are two types of memory, the RAM memory and Disk memories.
+\item RAM is fast, expensive and volatile.
+\item Disk can hold more data, slower than RAM, cheap and non-volatile.
+\item Programming requires persistence, that is storing and retrieving of data using non-volatile disks such as disks.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{File I/O}
+\begin{itemize}
+\item The simplest way to persist data is to use a flat file. This is just a sequence of bytes stored under a filename.
+\item Python's file operations are modeled on the familiar and popular Unix equivalents and it helps us to read from/write into a file in memory.
+\item The general syntax is 
+fileobj = open(filename, mode)
+\item Here, mode is a string indicating the file’s type and what you want to do with it.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mode}
+The first letter of mode indicates the operation
+\begin{itemize}
+\item r means read.
+\item w means write. If the file doesn't exist, its created. If the file does exist, its overwritten.
+\item x means write, but only if the file does not already exist.
+\item a means append (write after the end) if the file exists.
+\end{itemize}
+The second letter of mode is the file’s type:
+\begin{itemize}
+\item t (or nothing) means text.
+\item b means binary.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing a Flat file}
+\begin{lstlisting}
+
+review = "I have a few leave Bluetooth and \
+I'm gonna say this really brings the BOOM.\
+My music is bumping the colors are amazing \
+and it also plays FM radio how amazing is that?!"
+
+review_file = open('review','wt')
+review_file.write(review)
+review_file.close()
+\end{lstlisting}
+
+The write() function returns the number of bytes written. It does not add any spaces
+or newlines, as print() does.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Writing Large files in Chunks}
+If we have a large source string, we can also write chunks until the source is done:
+
+\begin{lstlisting}
+def write_in_chunks(text,chunk):
+    fout = open('output_file', 'wt')
+    size = len(text)
+    offset = 0
+    chunk = chunk
+    while True:
+        if offset > size:
+            break
+        fout.write(text[offset:offset+chunk])
+        offset += chunk
+    fout.close()
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Preventing Overwriting of Important Data}
+If we want to prevent overwriting of our data, we can prevent it with "xt". Let's implement that with a try..except block.
+\begin{lstlisting}
+
+try:
+	fout = open('output_file','xt')
+	fout.write('Lets overwrite your data')
+except FileExistsError:
+	print('The file already exists!. 
+	That was a close one.')
+	
+'The file already exists!. 
+	That was a close one.'
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Read a file using Read() in Chunks}
+We can provide a maximum character count to limit how much read() returns at one
+time because read() method reads at one go and that could strain the memory.
+
+\begin{lstlisting}
+review = ''
+fin = open('output_file', 'rt')
+chunk = 100
+while True:
+    fragment = fin.read(chunk)
+    if not fragment:
+        break
+    review += fragment
+fin.close()
+len(review)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading Using readline()}
+We can also read one line at a time using readline()
+\begin{lstlisting}
+review = ''
+fin = open('review', 'rt' )
+while True:
+    line = fin.readline()
+    if not line:
+        break
+    review += line
+
+fin.close()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading Using Iterator}
+The easiest way is perhaps to use an iterator.
+\begin{lstlisting}
+review = ''
+fin = open('review', 'rt' )
+for line in fin:
+    print(line)
+    review += line
+
+fin.close()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Closing Files with With}
+
+\begin{itemize}
+\item In Python, if we forget to close a file that we have opened, it will be automatically closed if the file operation is happening as part of a function call.
+\item In that case, the file is closed when the function execution stops.
+\item If otherwise, the file has to be closed explicitly, and in this case we can use "with" to accomplish automatic closing of the file.
+\item Python has context managers to clean up things such as open files.
+\end{itemize}
+\begin{lstlisting}
+with open('review', 'wt') as fout:
+    fout.write(poem)
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Seek and Tell}
+\begin{itemize}
+\item Python keeps track of where we are whenever we read and write in file operations.
+\item The tell() returns the current offset from the beginning of the file  in bytes.
+\item Seek() lets us jump to another byte offset in the file.
+
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.tell()
+\end{lstlisting}
+\item Lets use seek to read some particular byte:
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.seek(50) # reading from the byte 50
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Complete Coding Exercise}
+Complete coding exercise is available at \url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%206}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item We learned how flat files can be used to create and store quick data.
+\item We learned how to perform different file operations such as read, write and use of iterators to read and write data.
+\item We learned the use of 'with' for automatically close files that may accidentally be left open.
+\item We learned how to prevent overwriting of critical data using exception mechanism.
+\end{itemize}
+\end{frame}
+\end{document}
