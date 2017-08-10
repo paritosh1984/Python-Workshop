@@ -17,6 +17,20 @@ University of South Florida \\
 Tampa, Florida}
 \date{2017}
  
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+
 \begin{document}
 \frame{\titlepage}
 
@@ -24,7 +38,7 @@ Tampa, Florida}
 \frametitle{Memory Management}
 \begin{itemize}
 \item There are two types of memory, the RAM memory and Disk memories.
-\item RAM is fast, expensive and and volatile.
+\item RAM is fast, expensive and volatile.
 \item Disk can hold more data, slower than RAM, cheap and non-volatile.
 \item Programming requires persistence, that is storing and retrieving of data using non-volatile disks such as disks.
 \end{itemize}
@@ -186,16 +200,22 @@ with open('review', 'wt') as fout:
 \item Python keeps track of where we are whenever we read and write in file operations.
 \item The tell() returns the current offset from the beginning of the file  in bytes.
 \item Seek() lets us jump to another byte offset in the file.
+
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.tell()
+\end{lstlisting}
+\item Lets use seek to read some particular byte:
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.seek(50) # reading from the byte 50
+\end{lstlisting}
 \end{itemize}
-\begin{lstlisting}
-	fin = open('review', 'rt')
-	fin.tell()
-\end{lstlisting}
-Lets use seek to read some particular byte:
-\begin{lstlisting}
-	fin = open('review', 'rt')
-	fin.tell()
-\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Complete Coding Exercise}
+Complete coding exercise is available at \url{https://github.com/vivek14632/Python-Workshop/tree/master/Introducing\%20Python/Chapter\%206}
 \end{frame}
 
 \begin{frame}
