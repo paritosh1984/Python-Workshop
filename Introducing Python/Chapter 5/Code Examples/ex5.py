@@ -1,4 +1,4 @@
-from roll import single,double
+from roll import *
 
 side = single.roll_dice()
 print("You have rolled a {}".format(side))

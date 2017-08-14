@@ -1,0 +1,18 @@
+\frametitle{Exercise}
+
+Comment all lines in \_\_init\_\_.py file and import the modules using following line of code.
+
+\begin{lstlisting}
+from roll import *
+\end{lstlisting}
+
+Now uncomment top two lines of \_\_init\_\_.py and  test the above import statement again. What difference did you notice?
+
+Now, try the above exercise with following way of importing modules as discussed earlier.
+
+\begin{lstlisting}
+from roll import single, double
+\end{lstlisting}
+
+What difference did you notice in this case?
+

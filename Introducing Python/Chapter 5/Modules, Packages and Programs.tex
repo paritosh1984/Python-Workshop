@@ -201,6 +201,18 @@ When the above code is executed, the modules "single" and "double" will be impor
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{The \_\_init\_\_.py file}
+\begin{itemize}
+\item The \_\_init\_\_.py file is required if we import using * shown below.
+\end{itemize}
+
+\begin{lstlisting}
+from roll import *
+\end{lstlisting}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Complete Coding Exercise}
@@ -215,5 +227,26 @@ Complete coding exercise is available at \url{https://github.com/vivek14632/Pyth
 \item Using command line arguments help us with more control over providing inputs to the code, while debugging especially.
 \item Use of Packages to package all methods and classes together gives us more options to save the code for later reuse.
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise}
+
+Comment all lines in \_\_init\_\_.py file and import the modules using following line of code.
+
+\begin{lstlisting}
+from roll import *
+\end{lstlisting}
+
+Now uncomment top two lines of \_\_init\_\_.py and  test the above import statement again. What difference did you notice?
+
+Now, try the above exercise with following way of importing modules as discussed earlier.
+
+\begin{lstlisting}
+from roll import single, double
+\end{lstlisting}
+
+What difference did you notice in this case?
+
 \end{frame}
 \end{document}
