@@ -5,7 +5,7 @@
 \usepackage{listings}
 %\usepackage{subfig}
 
-\usetheme{Madrid}
+\usetheme{copenhagen}
 \usecolortheme{seahorse}
 \usefonttheme{serif} 
  
@@ -23,18 +23,27 @@ Tampa, Florida}
 \insertshorttitle\hfill%
 \insertframenumber\,/\,\inserttotalframenumber}
 
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+
 \begin{document}
 \frame{\titlepage}
 
 \begin{frame}
 \frametitle{Introduction to Files and Directories}
 \begin{itemize}
-\item We usually work with file and directories when we work on computers.
-\item Our data is stored in the form of files in directories.
-\item Often, we will need to create files in our programs to store our output data for later use.
-\item Programs can be written also to modify the data stored in a file.
+\item Our data is stored in different file formats within directories.
+\item Often, we need to create files in our programs to store our output data for later use.
+\item We can write program to modify data and store it back in a file.
 \item In this module, we will see how to work with files and folders in Python.
-\item Python's file operations are modeled after the Unix System and is available through the OS module.
+\item Python's file operations are modeled after the \textit{\color{blue}{Unix System}} and is available through the OS module.
 \end{itemize}
 \end{frame}
 
@@ -45,10 +54,12 @@ We can create a file by simply using the open method. If the file specified does
 import os
 fout = open('my_file.txt', 'wt')
 fout.close()
-# Check if the file has been created with exists()
+# Check if the file has been created with 
+#  exists() function
 os.path.exists('my_file.txt')
-True
+
 \end{lstlisting}
+The above function will return {\color{blue} True} if the file exists.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -78,11 +89,6 @@ os.listdir()
 os.rename('old_file_name', 'new_file_name')
 \end{lstlisting}
 
-More coding examples at - link
-\end{frame}
-
-\begin{frame}
-\frametitle{Calendar and Date}
 \end{frame}
 
 \begin{frame}
@@ -90,7 +96,7 @@ More coding examples at - link
 \begin{itemize}
 \item We learned how to use Python's os module to perform different file and directory related operations.
 \item We learned how to use Python to interact with the operating system to accomplish system tasks.
-\item We learned how to deal with Calendar, Date and Time in Python.
+
 \end{itemize}
 \end{frame}
 \end{document}

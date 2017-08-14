@@ -1,0 +1,11 @@
+\frametitle{Common File Operations}
+Some of the other commonly used file  operations are:
+\begin{lstlisting}[language=Python]
+# Get the current working directory
+os.getcwd()
+# Get all the files in the current workind direcorry
+os.listdir()
+# Rename a file
+os.rename('old_file_name', 'new_file_name')
+\end{lstlisting}
+
