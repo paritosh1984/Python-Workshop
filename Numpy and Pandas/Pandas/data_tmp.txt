@@ -1,0 +1,3 @@
+Name, age, sex
+Bob,20, Male
+Alice,21, Female
