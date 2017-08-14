@@ -1,0 +1,16 @@
+\frametitle{Seek and Tell}
+\begin{itemize}
+\item Python keeps track of where we are whenever we read and write in file operations.
+\item The tell() returns the current offset from the beginning of the file  in bytes.
+\item Seek() lets us jump to another byte offset in the file.
+
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.tell()
+\end{lstlisting}
+\item Lets use seek to read some particular byte:
+\begin{lstlisting}
+fin = open('review', 'rt')
+fin.seek(50) # reading from the byte 50
+\end{lstlisting}
+\end{itemize}
