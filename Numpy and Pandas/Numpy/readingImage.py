@@ -10,3 +10,7 @@ image.shape
 import matplotlib.pyplot as plt
 plt.imshow(image)
 plt.show()
+
+b=b=image[0:200,:,:]
+plt.imshow(image)
+plt.show()
