@@ -1,7 +1,5 @@
 # 1st Python Bootcamp (Information Systems Decison Sciences, MUMA College of Business, USF, FL).
 
-## Syllabus
-
 ## Instructors
 
 #### Vivek Singh,
