@@ -5,7 +5,7 @@
 \usepackage{listings}
 %\usepackage{subfig}
 
-\usetheme{Madrid}
+\usetheme{Copenhagen}
 \usecolortheme{seahorse}
 \usefonttheme{serif} 
  
@@ -43,10 +43,9 @@ Tampa, Florida}
 \begin{itemize}
 \item To understand the importance of algorithm analysis in computer science.
 \item To understand the usage of “Big-O” to describe execution time.
-\item To understand the “Big-O” analysis of common operations on Python lists and
-dictionaries.
+\item To understand the “Big-O” analysis of common operations on Python's in-built Data Structures.
 \item To analyze certain Python data implementations.
-\item To understand how to analyze and benchmark simple Python programs.
+\item To learn how to analyze and benchmark simple Python programs.
 
 \end{itemize}
 \end{frame}
@@ -54,8 +53,8 @@ dictionaries.
 \begin{frame}
 \frametitle{Introduction to Algorithm Analysis}
 \begin{itemize}
-\item There are many ways to solve a problem in computer science. The question here is how does one approach fair against another.
-\item The underlying algorithm that the approaches represent is what that creates the difference
+\item There are many ways to solve a problem in computer science. The question here is how does one approach compare against another.
+\item The underlying logic that an approach  represents is what that makes it distinct from another in terms of memory and computational efficiency and even readability and reusability.
 \item An algorithm is a generic, step-by-step list of instructions for solving a problem.
 \item A software program is the algorithm encoded into a programming language of choice. 
 \item Algorithm analysis is concerned with the amount of computing resources your implementation or solution uses.
@@ -67,14 +66,17 @@ dictionaries.
 \frametitle{Contd..}
 \begin{itemize}
 \item The solution that is efficient with the limited resources available is often the best solution to a problem.
-\item Sometimes, we may exchange performance for ease, but that is a subject for a whole other discussion.
-\item There are two different ways to analyse performance of an algorithm
+\item Sometimes, we may exchange performance for productivity,but that is a subject for a broader discussion.
+\item There are two different ways to analyze performance of an algorithm
 \begin{itemize}
-\item One way is to consider the amount of memory an algorithm requires to solve the problem. 
-\item Certain algorithms have some specific memory requirements, as we will see in certain sorting algorithms.
-\item The second way is to analyze the amount of time an algorithm requires to execute. This measure is sometimes referred to as the “execution time” or “running time” of the algorithm.
+\item The first way is to consider the amount of \textit{memory} an algorithm requires to solve the problem.
+\begin{itemize} 
+\item Some have some specific memory requirements, as we will see in certain sorting algorithms.
+\end{itemize}
+\item The second way is to analyze the amount of \textit{time} an algorithm requires to execute. This measure is sometimes knows as the “execution time” or “running time” of an algorithm.
 \end{itemize}
 \end{itemize}
+\footnote{An interesting read on performance vs productivity \url{http://www.cs.cornell.edu/~bindel/class/cs5220-s14/lectures/lec19.pdf}}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -92,9 +94,9 @@ def sum_of_n(n):
     return n_sum,end-start
 \end{lstlisting}
 \begin{itemize}
-\item The above code takes in an integer value and computes the sum of all integers upto n.
+\item The above code takes in a positive integer value and computes the sum of all integers upto n starting from 1	.
 \item We are recording the start time before the computation starts and also the end time when its done.
-\item The difference will give us the full execution time of our solution.
+\item The time difference will give us the full execution time of our solution.
 \end{itemize}
 
 \end{frame}
@@ -141,25 +143,25 @@ Sum is 500000500000 required  0.0601616 seconds
 
 Sum is 500000500000 required  0.0656435 seconds
 
-We can see the execution time has gone up 10 times or more than that for the previous.
+We can see the execution time has gone up 10 times or more than that as compared to the previous computation.
 \end{frame}
 
 \begin{frame}
 \frametitle{Intuitions and Conclusions}
 \begin{itemize}
 \item Intuitively we can say that the performance of the program seems to reduce especially with larger integers.
-\item But that is only expected as there is more computations to be done.
-\item However, this is not uniform as we could see that the same program produces different results in different execution times on different machines, different programming languages.
+\item But that is only expected as there is more number of computations to be done.
+\item However, this is not uniform as we could see that the same program produces different results in different execution times on different machines, and different programming languages.
 \item Remember that we are only concerned with the performance of the algorithm and not the Python implementation of it.
-\item Therefore, execution time is not the correct parameter to analyze performance of algorithms uniformly.
-\item We need to characterize performance that is independent of the program or computer being used.
+\item Therefore, execution time is not the correct parameter to analyze the performance of algorithms uniformly.
+\item \textit{We need to characterize performance that is independent of the program or the machine being used.}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Big-O Notation}
 \begin{itemize}
-\item To characterize an algorithm's performance in terms of of execution time,independent other factors  such as language or machine's ability, it is important to quantify the number of operations or
+\item To characterize an algorithm's performance in terms of execution time, independent of other factors  such as language or machine's ability, it is important to quantify the number of operations or
 steps that the algorithm will require.
 \item When each step accounts for a basic unit of computation, then the execution time for an algorithm can be expressed as the number of steps required to solve the problem. 
 \item But again, deciding on an appropriate basic unit of computation can be a complicated problem in itself and depends on the algorithm's implementation.
@@ -174,8 +176,8 @@ steps that the algorithm will require.
 \item For our problem, where we calculate the sum of n numbers, we have an initial assignment in n\_sum = 0.
 \item It is followed by n number of assignments for adding every other element to the n\_sum variable.
 \item Now, we denote this by a function, which we call T, where T(n) = 1 + n.
-\item The parameter n is called the size of the problem and we can read this is as "T(n) is the time it takes to solve a problem of size n, namely 1+n steps.”
-\item Computer scientists prefer to take this analysis technique one step further. As problems become more complex, the exact number of operations is not that important as compared to the most dominant part of the T(n) function.
+\item The parameter n is called the size of the problem and we can read this is as "T(n) is the time it takes to solve a problem of size n, which is 1+n steps.”
+\item Computer scientists prefer to take this analysis technique one step further. As problems become more complex, the exact number of operations is not that important as compared to the \textit{most dominant part of the T(n) function.}
 \item The "order of magnitude" function describes the part of T(n) that increases the fastest as value of n increases. 
 \end{itemize}
 \end{frame}
@@ -186,10 +188,10 @@ steps that the algorithm will require.
 \item Order of magnitude is often called Big-O notation (for “order”) and written as
 O(f(n)).
 \item The representation provides a useful approximation to the actual number of steps in the computation.
-\item The function f(n) provides a simple representation of the dominant part of the original T(n).
+\item The function f(n) provides a simple representation of the \textit{dominant} part of the original T(n).
 \item For example, for our sum of n integers problem, as n gets larger,the constant 1 becomes less significant and we could drop it and safely say that the execution time is O(n).
-\item Lets say another example takes exactly T(n) = 2n-squared + 30n + 50 steps. But as n increases, the n=squared term gets larger and at some point it becomes the most important.
-\item When it becomes even large, we could perhaps ignore the coefficient 2 as well and say the function T(n) has an order of magnitude f(n) = n-squared or O(n-squared). 
+\item Lets imagine another example takes exactly T(n) = 2$n^2$ + 30n + 50 steps. But as n increases, the $n^2$ term gets larger and at some point it becomes the most important.
+\item When it becomes very large, we could perhaps ignore the coefficient 2 as well and say the function T(n) has an order of magnitude f(n) = $n^2$ or O($n^2$). 
 \end{itemize}
 \end{frame}
 
@@ -197,17 +199,17 @@ O(f(n)).
 \frametitle{Different Approaches to Performance Evaluation}
 \begin{itemize}
 \item There are different measurements taken to analyze the performance of an algorithm in different cases.
-\item We usually characterize the performance in terms of best case, worst case and average case performances.
+\item We usually characterize the performance in terms of \textit{best case}, \textit{worst case} and \textit{average case} performances.
 \item There are situations in which an algorithm performs especially bad but this depends entirely on the data that it is working with.
 \item Going by that definition, for a different data set, the algorithm might perform exceptionally well.
-\item Most of the time, the performance lies in between these two areas and we call it the average case.
+\item Most of the time, the performance lies in between the best and worst case and we call it the average case.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Common Order of Magnitude Functions}
 \begin{itemize}
-\item As we study algorithms and their analysis, we come across various functions frequently.
+\item As we study algorithms and their analysis, we come across the following standard functions frequently.
 \begin{figure}
 \includegraphics[scale=0.6]{Table}
 \end{figure}
@@ -249,8 +251,8 @@ T(n) = 4 + 3$n^2$ + 2n + 1
 \frametitle{Anagram Detection Example}
 Lets discuss Big-O Notation further with the Anagram example.
 \begin{itemize}
-\item One string is an anagram of another if the second is simply a rearrangement of the first.
-\item For example, earth is a rearrangement of heart. Likewise "Mother in law" is an anagram of "Hitler woman".
+\item A string is an anagram of another if the second string is simply a rearrangement of the first string.
+\item For example, School Master is a rearrangement of The Classroom. Likewise "Astronomer" is an anagram of "Moon Starrer".
 \item If the two strings are of  the same length and are made up of a combination of the 26 alphabets, we could easily analyze them.
 \item Lets discuss two solutions to identifying an anagram and analyze their performances.
 \item Code link to be shared.
@@ -286,7 +288,7 @@ are nested.
 \end{frame}
 
 \begin{frame}
-\frametitle{Leaving Thoughts}
+\frametitle{Key Take Away}
 \begin{itemize}
 \item In computer science, it is often left to the nature of the problem, the programmer and the final output that is expected of it, to make decisions on performance and space requirements.
 \item In the example that we just discussed, although the second solution appears to be the better one, it could create serious strain on the memory if the strings to be compared were large.
