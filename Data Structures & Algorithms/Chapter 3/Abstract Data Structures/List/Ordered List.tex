@@ -62,26 +62,26 @@ Tampa, Florida}
 
 \begin{frame}
 \frametitle{Implementing an Ordered List}
-In order to implement the ordered list, we must keep a couple of things in 
+In order to implement the ordered list, we must follow certain rules such as, 
 
 \begin{itemize}
 \item Keep the ordered structure intact.
-\item Use the linked structure and Node to achieve the relative positioning of the items.
+\item Use the linked structure and notion of Node to achieve the relative positioning of the items.
 \item Like in the unordered list, once again, an empty list will be denoted by a head reference to None.
-\item All the operations, except the search and add will be a little different compared to the unordered list.
+\item All the operations, except the search and add operations are the same as seen in unordered list.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{The Add operation}
-The add method differs very much from the add method in the Unordered list.
+The add method in ordered lists differ very much from the add method in the Unordered list.
 
 \begin{itemize}
 \item Using Link traversal, we must traverse the list to find out where the item could be inserted depending on the order.
 
 \item For example, in our list containing the following elements [17,23,45,68,78,79,90], if we have to add 75, the method should know that it goes in between 68 and 78.
 
-\item It is therefore helpful to go with an additional reference along with the current reference as seen in previous exercises. 
+\item It is therefore helpful to perform this operation with an additional reference along with the current reference as seen in previous exercises. 
 
 \end{itemize}
 \end{frame}
@@ -119,9 +119,7 @@ The search operation works pretty much similar to a search in unordered list.
 
 \item For example, if in a list containing [17,23,45,68,78,79,90], we are looking for 48.
 
-\item When the links are traversed in search of the item, after 45 is passed, when the next node with value 68 is visited.
-
-\item The comparison will result in a value greater than the item being searched for and therefore the search will be terminated right there.
+\item When the links are traversed in search of the item, after 45 is passed, when the next node with value 68 is encountered, the comparison will result in a value greater than the item being searched for and therefore the search will be terminated right there.
 
 \item Because, the underlying characteristic of the list has already told us that going further is inconsequential. 
 \end{itemize}
@@ -151,7 +149,7 @@ def search(self, item):
 \begin{frame}
 \frametitle{Summary}
 \begin{itemize}
-\item Ordered lists are more or less similar to unordered lists except a few key operations like add and search due to the unique underlying structure.
+\item Ordered lists are more or less similar to unordered lists except a few key operations such as  add and search due to the unique underlying structure.
 \item Ordered lists offer significant improvements in search over the unordered counterparts because the items are ordered and mostly the average case performance is significantly higher.
 \item Most operations are similar  in implementation and performance to the unordered lists.
 \end{itemize}

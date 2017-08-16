@@ -26,7 +26,7 @@ Recursion is a method of solving problems that involves breaking a problem down 
 and smaller sub-problems until we get to a state where we cannot break it down any further and it becomes small enough that it can be solved trivially.
 \begin{itemize}
 \item Recursion usually involves calling the same function repeatedly.
-\item Recursion allows us to come up with elegant solution to problems that would otherwise require complex programming.
+\item Recursion allows us to come up with elegant solutions to problems that would otherwise require complex programming.
 \end{itemize}
 \end{frame}
 
@@ -40,7 +40,7 @@ def list_sum(num_list):
         sum_list = sum_list + i
     return sum_list
 \end{lstlisting}
-We simply loop over the list and on each iteration, we keep adding each element of the list to the sum variable.
+We simply loop over the list and in each iteration, we keep adding each element of the list to the sum variable.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -60,9 +60,9 @@ We simply loop over the list and on each iteration, we keep adding each element 
 
 \begin{frame}[fragile]
 \frametitle{Implementation Using Recursion}
-This is our clue to a simple, more elegant way of computing the sum it if we consider that the sum is simply the addition of the first element in the list with the sum of the rest of the list elements in each iteration.
+This is our clue to a simple, more elegant way of computing the sum if we consider that the sum is simply the addition of the first element in the list with the sum of the rest of the list elements in each iteration.
 \begin{itemize}
-\item Two scenarios rise out this understanding.
+\item Two scenarios come out of this understanding.
 \item If there is only element in the list, the sum is just that element.
 \item If there is more than one element, the sum is the addition of the first element with the sum of the rest of the list. 
 \end{itemize}
@@ -94,13 +94,13 @@ The following are the three fundamental principles of Recursion.
 \item A recursive algorithm must move toward the base case by changing its state.
 \item A recursive algorithm must call itself recursively.
 \end{itemize}
-Comparing this to the problem we just solved with recursion could help us more in understanding the laws.
+Comparing this to the problem we just solved without recursion, could help us more in understanding the laws.
 \end{frame}
 
 \begin{frame}
 \frametitle{The Three Laws of Recursion Contd..}
 \begin{itemize}
-\item A base case is a condition that helps the algorithm from recursing again.
+\item A base case is a condition that helps stop the algorithm from recursing again.
 \item In our example, it is the first condition where the length of the list is checked to be 1.
 \item The base case is the problem broken down into its smallest form and in our case, it is a list containing only one element whose sum is simply the element itself.
 \item The base case will vary for different problems.
@@ -154,8 +154,8 @@ def palindrome_checker(str):
 \item We understood the three laws that govern recursion.
 \begin{itemize}
 \item The requirement of a base case.
-\item The The change of state with each recursion, and
-\item The ability and need to call itself which achieves recursion.
+\item The change of state with each recursion, and
+\item The ability and need to call itself repeatedly which achieves recursion.
 \end{itemize} 
 \end{itemize}
 \end{frame}

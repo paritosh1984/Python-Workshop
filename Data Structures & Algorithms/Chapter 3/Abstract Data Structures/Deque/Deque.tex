@@ -28,15 +28,17 @@ Tampa, Florida}
 \frametitle{What is a Deque}
 \begin{itemize}
 
-\item A Deque is an ordered collection of items with a variation.
+\item A Deque is an ordered collection of items.
 
-\item It has two ends called the front and the rear which are interchangeable unlike the queue data structure.
+\item It has two ends called the \textit{front} and the \textit{rear} which are interchangeable unlike the queue data structure.
+
+\item A deque is different from a stack or a queue.
 
 \item Data items can be added and removed from both the ends and thus it assumes the characteristics of both a stack and a queue. 
 
 \item It could be thought of as a crossover between a stack and a queue.
 
-\item It does not follow any ordering principle like LIFO or FIFO.
+\item It does not follow any ordering principle such as LIFO or FIFO.
 
 
 \end{itemize}
@@ -45,7 +47,7 @@ Tampa, Florida}
 
 \begin{frame}
 \frametitle{Essential Operations in a Deque}
-The Deque must have the ability to
+The following are the essential operations of a Deque.
 \begin{itemize}
 
 \item To add a new item either to the front or the rear end of the deque.
@@ -69,7 +71,7 @@ The Deque must have the ability to
 
 \item The ability to add and remove items from both the ends of the list is provided by the list indices.
 
-\item To add an element to the front, we can simply do a traditional list insert.
+\item To add an element to the front, we can easily do a traditional list insert.
 
 \item To remove elements from the front, we use the traditional pop() method.
 
@@ -90,7 +92,7 @@ The Deque must have the ability to
 
 \item To add an element to the rear, we will be inserting the element to the index position 0.
 
-\item This implementation of adding and removing items from the front is O(1) operation.
+\item This implementation of adding and removing items from the rear is O(1) operation.
 
 \item Just like in queues we will use the len() and comparator operation to check the size and for empty deques.
 
@@ -120,5 +122,16 @@ class Deque:
 \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item Deques are Abstract data structures that could be thought of as a mix of both stacks and queues.
+\item Dequeus can be implemented with Python's in-built List data structure.
+\item Deques adopt both LIFO and FIFO ordering principles and can be chosen between based on the requirements.
+\item Deques have an O(1) operation for adding and removing items if the rear end is chosen to add and remove items.
+\end{itemize}
+\end{frame}
+
 \end{document}
 

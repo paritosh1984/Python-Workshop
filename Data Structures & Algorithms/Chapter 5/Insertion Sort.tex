@@ -29,9 +29,9 @@ Tampa, Florida}
 \item It maintains a sorted sublist in the lower positions of the list.
 \item Each new item is then inserted back into this sublist such that the sorted sublist grows by one item at a time.
 \item In the beginning, we start with a list of one item at position 0, which is already sorted.
-\item Every pass, through items from position 1 through n-1, compares the current item against those in the sorted sublist.
+\item Every pass through the items from position 1 through n-1, compares the current item against those in the sorted sublist.
 \item The items that are greater are shifted to the right.
-\item When an item that is smaller than the current item is encountered, it can be inserted.
+\item When an item that is smaller than the current item is encountered, it can be inserted back.
 \end{itemize}
 \end{frame}
 
@@ -45,16 +45,16 @@ Tampa, Florida}
 \item Initially, 81 will be moved to the right as it is larger than 44. 
 \item The same happens with 45 and 64.
 \item When it encounters 44, which is smaller than 45, it performs an insertion.
-\item Animation - http://www.cs.armstrong.edu/liang/animation/web/InsertionSort.html
+\footnote{Animation - \url{http://www.cs.armstrong.edu/liang/animation/web/InsertionSort.html}}
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Contd}
+\frametitle{Contd..}
 \begin{itemize}
-\item There are n-1 passes to be made for a list of n items again.
-\item The iterations starts at 1 and moves through position n-1. Note that position 0 is already sorted when we start.
+\item There are n-1 passes to be made for a list of n items in insertion sort as well.
+\item The iterations start at 1 and moves through position n-1. Note that position 0 is already sorted when we start.
 \item The maximum number of comparisons for an insertion sort is the sum of the first n-1 integers.
 \item Again, this is O($n^2$).
 \item It is well worth noticing that here, we are shifting instead of exchanging. 
