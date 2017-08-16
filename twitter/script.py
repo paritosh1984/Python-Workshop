@@ -33,7 +33,7 @@ def prop_loader(prop_file):
 if __name__ == '__main__':
 
     #This handles Twitter authetification and the connection to Twitter Streaming API
-    prop_loader('settings.properties.txt')
+    #prop_loader('settings.properties.txt')
     sys.stdout = open(output_file, 'w+')
     l = StdOutListener()
     auth = OAuthHandler('**', '**')
