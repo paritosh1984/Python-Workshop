@@ -1,0 +1,7 @@
+\frametitle{Pip}
+\begin{lstlisting}[language=Python]
+pip install <package>==<version>
+
+Example:
+pip install Django==1.9
+\end{lstlisting}

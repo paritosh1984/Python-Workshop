@@ -1,0 +1,64 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+%\usepackage{subfig}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+ 
+
+%Information to be included in the title page:
+\title{Django - Introduction}
+\author{Vivek Singh}
+\institute{Information Systems Decision Sciences (ISDS)\\
+MUMA College of Business\\
+University of South Florida \\
+Tampa, Florida}
+\date{2017}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+\insertshorttitle\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+
+\lstset{language=python,
+		showstringspaces=false,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{purple}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{What is Django?}
+\begin{itemize}
+\item Cool Python framework for Web development.
+\item Open source
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Installation}
+\begin{itemize}
+\item Install using pip.
+\item Open anaconda prompt and type following command
+\item Project website: \url{https://www.djangoproject.com/}
+\end{itemize}
+
+\begin{lstlisting}[language=bash]
+
+$ pip install <package>==<version>
+
+Example:
+$ pip install Django==1.9
+
+To uninstall Django
+$ pip uninstall Django
+
+\end{lstlisting}
+\end{frame}
+
+
+\end{document}

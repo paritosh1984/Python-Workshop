@@ -1,0 +1,18 @@
+\frametitle{Installation}
+\begin{itemize}
+\item Install using pip.
+\item Open anaconda prompt and type following command
+\item Project website: \url{https://www.djangoproject.com/}
+\end{itemize}
+
+\begin{lstlisting}[language=bash]
+
+$ pip install <package>==<version>
+
+Example:
+$ pip install Django==1.9
+
+To uninstall Django
+$ pip uninstall Django
+
+\end{lstlisting}
