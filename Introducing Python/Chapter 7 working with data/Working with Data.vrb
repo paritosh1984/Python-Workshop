@@ -1,0 +1,11 @@
+\frametitle{Regular Expressions}
+Regular expressions are used for complex pattern matching.
+\begin{itemize}
+\item Regular expressions are patterns used to match character combinations in strings.
+\item It is a particular kind of formal grammar used to parse strings and other textual information that are known as "Regular Languages" in formal language theory.
+\item It is common to all programming languages and is available in Python through the re (short for regular expression) module.
+\end{itemize}
+\begin{lstlisting}[language=Python]
+	import re
+	result = re.match('on', 'Pythonic code')
+\end{lstlisting}

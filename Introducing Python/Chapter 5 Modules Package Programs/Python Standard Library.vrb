@@ -1,0 +1,13 @@
+\frametitle{Print Pretty Statements with pprint()}
+pprint pretty prints data for us.
+\begin{lstlisting}[language=Python]
+data = [ (i, { 'a':'A','b':'B','c':'C',
+'d':'D','e':'E'})
+         for i in range(3)
+         ]
+from pprint import pprint
+
+# Check the difference between
+print(data)
+pprint(data)
+\end{lstlisting}

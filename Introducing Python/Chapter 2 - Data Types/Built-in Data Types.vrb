@@ -1,0 +1,20 @@
+\frametitle{Continued..}
+There are two ways to show the docstring.
+
+\begin{lstlisting}
+# Method #1 -Using help()
+
+help(add)
+
+'Help on function add in module __main__:
+
+add(x, y)
+The function adds two integers and returns
+the sum.'
+
+# Method #2 - Using __doc__
+add.__doc__
+
+'The function adds two integers and
+returns the sum.'
+\end{lstlisting}

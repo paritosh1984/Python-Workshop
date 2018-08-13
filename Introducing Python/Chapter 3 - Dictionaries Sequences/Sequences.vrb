@@ -1,0 +1,10 @@
+\frametitle{Tuple Unpacking}
+\begin{itemize}
+\item Multiple variables can be assigned with values at one go using Tuples in Python.
+\item This underlying implementation has a bigger advantage in Python in a few  operations such as swapping two/more variables.
+\item In other programming languages, particularly statically-typed language, it is more complicated than how it's done in Python.
+\item Without the use of a temporary variable, unlike in other languages, in Python, two variables can be swapped as follows:
+\begin{lstlisting}
+a,b = b,a
+\end{lstlisting}
+\end{itemize}

@@ -1,0 +1,15 @@
+\frametitle{Continued..}
+\begin{lstlisting}
+# A list of two-character strings:
+my_str_list = [ 'ab', 'cd', 'ef' ]
+my_dict = dict(my_str_list)
+my_dict
+{'a': 'b', 'c': 'd', 'e': 'f'}
+
+# A tuple of two-character strings:
+my_str_tuple = ( 'ab', 'cd', 'ef' )
+my_dict = dict(my_str_tuple)
+my_dict
+{'a': 'b', 'c': 'd', 'e': 'f'}
+\end{lstlisting}
+It is to be noted that this works only for two-item sequences. For more than 2, an exception will be thrown.

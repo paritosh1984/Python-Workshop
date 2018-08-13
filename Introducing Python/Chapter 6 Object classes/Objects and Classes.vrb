@@ -1,0 +1,16 @@
+\frametitle{Types of Methods in Classes - Static Methods}
+\begin{itemize}
+\item A third type of method is the static  method. It neither affects the class nor the objects.
+\item Its defined with a @staticmethod decorator with no initial self or cls parameter.
+\begin{lstlisting}
+class Car():
+	@staticmethod
+	def promo():
+		print('All these cars are for
+		sale!!')
+Car.promo()
+All these cars are for sale!!
+\end{lstlisting}
+\item Notice that we did not have to create objects of the class to access this method.
+\item Static methods do not have access to instance attributes or class attributes.
+\end{itemize}

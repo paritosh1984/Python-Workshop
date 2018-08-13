@@ -1,0 +1,9 @@
+\frametitle{Anagram Detection Example}
+Lets discuss Big-O Notation further with the Anagram example.
+\begin{itemize}
+\item A string is an anagram of another if the second string is simply a rearrangement of the first string.
+\item For example, School Master is a rearrangement of The Classroom. Likewise "Astronomer" is an anagram of "Moon Starrer".
+\item If the two strings are of  the same length and are made up of a combination of the 26 alphabets, we could easily analyze them.
+\item Lets discuss two solutions to identifying an anagram and analyze their performances.
+\item Code link to be shared.
+\end{itemize}

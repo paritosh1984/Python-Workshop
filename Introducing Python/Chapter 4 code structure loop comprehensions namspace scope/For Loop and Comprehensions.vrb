@@ -1,0 +1,19 @@
+\frametitle{Using Comprehensions for Other Sequential Types}
+\begin{itemize}
+\item Comprehensions can be used to create other sequential data types as well and not just Lists.
+\item Dictionary Comprehension take the form:
+\begin{lstlisting}
+{key_expr: value_expr for expr in iterable}
+# expr is short for expression.
+\end{lstlisting}
+\item Set expressions take the form as follows:
+\begin{lstlisting}
+{expression for expression in iterable}
+\end{lstlisting}
+\item Tuples do not have comprehensions.
+\item Enclosing a similar syntax inside a pair of parantheses instead creates a generator.
+\begin{lstlisting}
+>>>compr = (number for number in range(1, 6))
+>>>type(compr)
+\end{lstlisting}
+\end{itemize}

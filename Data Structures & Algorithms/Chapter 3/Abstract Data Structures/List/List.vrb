@@ -1,0 +1,9 @@
+
+\begin{lstlisting}[language=Python, keywordstyle=\color{blue}]
+def add(self, item):
+	temp = Node(item)
+	temp.set_next(self.head)
+	self.head = temp
+	for i in range(1,10):
+		print(i)
+\end{lstlisting}

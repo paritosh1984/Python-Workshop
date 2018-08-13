@@ -1,0 +1,10 @@
+\frametitle{Lambda Functions}
+Lambda functions are used to create anonymous "on the go" functions in place of little function definitions that might not be reused later and is an overkill.
+
+Lambda functions can be expressed in a single statement.
+\begin{lstlisting}[language=Python]
+my_lambda = lambda x : x*2
+
+print(my_lambda(10))
+
+\end{lstlisting}

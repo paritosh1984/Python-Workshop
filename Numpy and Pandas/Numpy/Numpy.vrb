@@ -1,0 +1,14 @@
+\frametitle{Slices are References}
+\begin{lstlisting}[language=Python]
+# Lets create an array
+a = np.array([1,2,34,5,563])
+print(a)
+array([  1,   2,  34,   5, 563])
+# Lets take a slice of a and assign it to b
+b = a[2:5]
+# Lets add an item to b's 0th index position
+b[0] = 252
+# But turns out a changed as well along with b
+a
+\end{lstlisting}
+That is because slices are references and not separate objects and hence any change made through the references pointing to a slice of an array creates changes in the original array. This is called broadcasting.

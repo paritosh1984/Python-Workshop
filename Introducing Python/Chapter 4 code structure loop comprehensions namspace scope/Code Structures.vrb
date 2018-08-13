@@ -1,0 +1,18 @@
+\frametitle{Use of Continue}
+Continue can be used to continue with the loop execution.
+\begin{lstlisting}[language=Python]
+while True:
+    value = input("Enter an integer of choice.
+     Press q to quit: ")
+    if value == 'q': # quit
+        break
+    else:
+        number = int(value)
+        if number%2 == 0:
+            print(number, "squared is",\
+             number*number)
+            continue
+        else:
+            break
+
+\end{lstlisting}
