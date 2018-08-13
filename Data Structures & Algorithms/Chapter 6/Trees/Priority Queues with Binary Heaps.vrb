@@ -1,0 +1,11 @@
+\frametitle{Implementation}
+Now that we have implemented all the supporting methods, we will implement the delete method as follows:
+\begin{lstlisting}[language=Python]
+def del_min(self):
+    ret_val = self.h_list[1]
+    self.h_list[1] = self.h_list[self.size]
+    self.size = self.size - 1
+    self.h_list.pop()
+    self.percolate_down(1)
+    return ret_val
+\end{lstlisting}

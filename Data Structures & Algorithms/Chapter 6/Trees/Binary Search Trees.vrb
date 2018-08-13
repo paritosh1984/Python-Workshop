@@ -1,0 +1,15 @@
+\frametitle{Implementation in Python}
+For the implementation we will use the same class-oriented structure we used for linked lists, using a class for Tree Node and another for the Tree itself.
+\begin{lstlisting}[language=Python]
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+        self.size = 0
+    def length(self):
+        return self.size
+    def __len__(self):
+        return self.size
+    def __iter__(self):
+        return self.root.__iter__()
+\end{lstlisting}

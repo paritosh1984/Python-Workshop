@@ -1,0 +1,12 @@
+\frametitle{Accessor Methods to get the Child Nodes}
+\begin{lstlisting}[language=Python, keywordstyle=\color{blue}]
+def get_right_child(self):
+	return self.right_child
+def get_left_child(self):
+	return self.left_child
+def set_root_val(self,obj):
+	self.key = obj
+def get_root_val(self):
+	return self.key
+\end{lstlisting}
+

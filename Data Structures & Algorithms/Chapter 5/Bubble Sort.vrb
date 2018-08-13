@@ -1,0 +1,14 @@
+\frametitle{Python Implementation}
+\begin{lstlisting}[language=Python]
+def bubble_sort(a_list):
+    for passes in range(len(a_list) - 1, 0, -1):
+        for i in range(passes):
+            if a_list[i] > a_list[i + 1]:
+                a_list[i],a_list[i + 1] =
+                 a_list[i + 1],a_list[i]
+    return(a_list)
+a = [1,2,3,4,6,345,25,6,25,5,6,72,61,6,262]
+bubble_sort(a)
+[1, 2, 3, 4, 5, 6, 6, 6, 6, 25, 25, 61, 72, 262, 345]
+\end{lstlisting}
+Notice that we used the simple two-variable swap that Python offers to swap the list items here.

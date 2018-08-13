@@ -1,0 +1,15 @@
+\frametitle{Palindrome Checker Using Recursion}
+\begin{itemize}
+\item For a string to be a palindrome, the string and its reverse must be the same.
+\item The problem could be broken down by progressively comparing the first character with the last and then deciding whether or not to proceed ahead with recursion.
+\item If the characters are the same, change the state of the data, that is consider only the character besides the characters we just compared and recurse again.
+\item We repeat this until the point the string cannot be broken down any further.
+\begin{lstlisting}[language=Python]
+def palindrome_checker(str):
+    if len(str) == 1:
+        return True
+    if str[0] != str[-1]:
+        return False
+    return palindrome_checker(str[1:-1])
+\end{lstlisting}
+\end{itemize}

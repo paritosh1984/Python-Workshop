@@ -1,0 +1,12 @@
+\frametitle{Continued}
+\begin{lstlisting}[language=Python]
+while j < len(right_half):
+            print('Second')
+            input_list[k]=right_half[j]
+            print(input_list[k])
+            j=j+1
+            k=k+1
+a =  [5,1,66,35,72,26,6,7,267,25,24,46,25,54]
+merge_sort(a)
+[1, 5, 6, 7, 24, 25, 25, 26, 35, 46, 54, 66, 72, 267]
+\end{lstlisting}
