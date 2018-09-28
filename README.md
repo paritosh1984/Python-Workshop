@@ -7,10 +7,6 @@ Doctoral Student,
 ISDS, MUMA College of Business.
 vivek4@mail.usf.edu
 
-#### Deepak George,
-Masters Student in BAIS,
-ISDS, MUMA College of Business.
-georged@mail.usf.edu
 
 ## Schedule
 ### Day #1 - 
