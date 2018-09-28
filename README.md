@@ -3,7 +3,7 @@
 ## Instructors
 
 #### Vivek Singh,
-Doctoral Student,
+Doctoral candidate,
 ISDS, MUMA College of Business.
 vivek4@mail.usf.edu
 
